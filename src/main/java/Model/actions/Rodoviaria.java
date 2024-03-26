@@ -608,15 +608,6 @@ public class Rodoviaria {
     }
 
 
-//    private Boolean verificarDisponibilidade(int codigoOnibus) {
-//        if (verificarDisponibilidade(codigoOnibus) == true) {
-//            if (buscarOnibus(codigoOnibus).getDisponibilidade() == true) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
     private boolean verificaHorario(String horario) {
         if (horario.length() == 5) {
             if (horario.charAt(2) == ':') {
