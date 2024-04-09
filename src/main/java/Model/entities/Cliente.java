@@ -3,13 +3,13 @@ package Model.entities;
 import Model.interfaces.InterfacePessoa;
 
 
-public class Cliente implements InterfacePessoa {
-    private final String nome;
+public class Cliente extends Pessoa implements InterfacePessoa {
+
     private final String cpf;
     private String telefone;
 
     public Cliente(String nome, String cpf, String telefone) {
-        this.nome = nome;
+        super(nome);
         this.cpf = cpf;
         this.telefone = telefone;
     }

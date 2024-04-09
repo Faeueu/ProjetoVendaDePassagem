@@ -640,8 +640,8 @@ public class Rodoviaria {
             return cpf;
         }
 
-        if (validarCPF(cpf) == true) {
-            if (CPFDuplicado(cpf) == false) {
+        if (validarCPF(cpf)) {
+            if (!CPFDuplicado(cpf)) {
                 return cpf;
             }
         }
