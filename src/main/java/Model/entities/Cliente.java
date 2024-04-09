@@ -2,14 +2,11 @@ package Model.entities;
 
 import Model.interfaces.InterfacePessoa;
 
-import java.util.Scanner;
 
 public class Cliente implements InterfacePessoa {
     private final String nome;
     private final String cpf;
     private String telefone;
-
-    Scanner sc = new Scanner(System.in);
 
     public Cliente(String nome, String cpf, String telefone) {
         this.nome = nome;

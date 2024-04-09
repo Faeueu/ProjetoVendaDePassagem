@@ -52,6 +52,7 @@ public class Rodoviaria {
                 System.out.println("3 - Parametros da viagem");
                 System.out.println("4 - Relatorio");
                 System.out.println("5 - Sair");
+                System.out.println("Selecione uma opção: ");
 
                 int opc = sc.nextInt();
                 switch (opc) {
@@ -603,7 +604,7 @@ public class Rodoviaria {
         if (onibus != null) {
             return onibus.getDisponibilidade();
         } else {
-            return false; // Retorna false se o ônibus não foi encontrado
+            return false;
         }
     }
 

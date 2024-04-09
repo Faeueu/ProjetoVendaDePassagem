@@ -1,8 +1,6 @@
 package Model.entities;
 
-import Model.interfaces.InterfaceOnibus;
-
-public class Onibus extends InterfaceOnibus{
+public class Onibus extends Veiculo {
     private boolean disponibilidade = true;
 
     public void setDisponibilidade(boolean disponibilidade) {

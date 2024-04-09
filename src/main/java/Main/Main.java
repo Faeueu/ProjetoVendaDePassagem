@@ -1,4 +1,4 @@
-package main;
+package Main;
 
 import Model.actions.Rodoviaria;
 public class Main {

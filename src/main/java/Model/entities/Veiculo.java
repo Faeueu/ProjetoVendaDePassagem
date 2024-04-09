@@ -1,11 +1,11 @@
-package Model.interfaces;
+package Model.entities;
 
-public abstract class InterfaceOnibus {
+public abstract class Veiculo {
     private String nome;
     private int nmrAssentos;
     private int codigoOnibus;
 
-    public InterfaceOnibus(String nome, int nmrAssentos, int codigoOnibus){
+    public Veiculo(String nome, int nmrAssentos, int codigoOnibus){
         this.nome = nome;
         this.nmrAssentos = nmrAssentos;
         this.codigoOnibus = codigoOnibus;
