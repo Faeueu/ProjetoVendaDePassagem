@@ -1,10 +1,16 @@
 package Model.entities;
 
-public class Motorista extends Pessoa {
+public class Motorista extends Funcionario {
 
-    private final String Id;
-    public Motorista(String nome, String id) {
-        super(nome);
-        this.Id = id;
+    public Motorista(String nome, String motoristaID) {
+        super(nome, motoristaID);
+    }
+
+    @Override
+    public String toString() {
+        return "Motorista{" +
+                "funcionarioID='" + funcionarioID + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }
