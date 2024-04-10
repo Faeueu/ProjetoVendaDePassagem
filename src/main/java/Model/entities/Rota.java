@@ -51,7 +51,7 @@ public class Rota {
                 "rotaID='" + rotaID + '\'' +
                 ", inicio=" + inicio +
                 ", fim=" + fim +
-                ", onibus=" + onibus +
+                ", onibus= "  + onibus +
                 '}';
     }
 }
