@@ -1,36 +1,45 @@
 package Model.entities;
 
-import Model.interfaces.InterfacePessoa;
 
+public class Cliente extends Pessoa {
 
-public class Cliente implements InterfacePessoa {
-    private final String nome;
-    private final String cpf;
-    private String telefone;
+    protected final String cpf;
+    protected String telefone;
+    protected String email;
 
-    public Cliente(String nome, String cpf, String telefone) {
-        this.nome = nome;
+    public Cliente(String nome, String cpf, String telefone, String email) {
+        super(nome);
         this.cpf = cpf;
         this.telefone = telefone;
+        this.email = email;
     }
 
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
     public String getCpf() {
         return cpf;
     }
 
-    @Override
     public String getTelefone() {
         return telefone;
     }
 
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Cliente [ Nome = " + nome + ", CPF = " + cpf + ", Telefone = " + telefone + " ]";
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' + '}';
     }
 }

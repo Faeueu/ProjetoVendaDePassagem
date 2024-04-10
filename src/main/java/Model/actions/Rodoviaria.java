@@ -8,7 +8,7 @@ import Model.entities.*;
 import Model.enums.StatusViagem;
 public class Rodoviaria {
     private ArrayList<Onibus> onibus;
-    private ArrayList<Viagem> viagens;
+    private ArrayList<Parada> viagens;
     private ArrayList<Cliente> clientes;
     private ArrayList<Venda> vendasAtivas;
     private ArrayList<Venda> vendasCanceladas;
@@ -19,7 +19,7 @@ public class Rodoviaria {
         this.vendasAtivas = vendasAtivas;
         this.vendasCanceladas = vendasCanceladas;
         this.onibus = new ArrayList<Onibus>();
-        this.viagens = new ArrayList<Viagem>();
+        this.viagens = new ArrayList<Parada>();
         this.clientes = new ArrayList<Cliente>();
     }
 
@@ -31,7 +31,7 @@ public class Rodoviaria {
         return onibus;
     }
 
-    public ArrayList<Viagem> getViagens() {
+    public ArrayList<Parada> getViagens() {
         return viagens;
     }
 
@@ -190,7 +190,7 @@ public class Rodoviaria {
 
 
 
-        viagens.add(new Viagem(origem, destino, horario, buscarOnibus(codigoOnibus)));
+        viagens.add(new Parada(origem, destino, horario, buscarOnibus(codigoOnibus)));
         System.out.println("Viagem cadastrada com sucesso!");
     }
 
@@ -547,7 +547,7 @@ public class Rodoviaria {
         return false;
     }
 
-    private Viagem buscarViagem(String nmrViagem) {
+    private Parada buscarViagem(String nmrViagem) {
         for (int i = 0; i < viagens.size(); i++) {
             if (viagens.get(i).getNmrViagem().equals(nmrViagem)) {
                 return viagens.get(i);
@@ -640,8 +640,8 @@ public class Rodoviaria {
             return cpf;
         }
 
-        if (validarCPF(cpf) == true) {
-            if (CPFDuplicado(cpf) == false) {
+        if (validarCPF(cpf)) {
+            if (!CPFDuplicado(cpf)) {
                 return cpf;
             }
         }

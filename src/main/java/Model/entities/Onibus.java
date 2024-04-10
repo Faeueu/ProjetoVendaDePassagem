@@ -1,27 +1,42 @@
 package Model.entities;
 
-public class Onibus extends Veiculo {
-    private boolean disponibilidade = true;
+public class Onibus {
+    private final String onibusID;
+    private Integer capacidadeMaxiama;
+    private Motorista motorista;
 
-    public void setDisponibilidade(boolean disponibilidade) {
-        this.disponibilidade = disponibilidade;
+    public Onibus(String onibusID, Integer capacidadeMaxiama, Motorista motorista){
+        this.onibusID = onibusID;
+        this.capacidadeMaxiama = capacidadeMaxiama;
+        this.motorista = motorista;
     }
 
-    public Onibus(int codigoOnibus, String nome, int nmrAssentos){
-        super(nome, nmrAssentos, codigoOnibus);
-        disponibilidade = true;
+    public String getOnibusID() {
+        return onibusID;
+    }
+
+    public Integer getCapacidadeMaxiama() {
+        return capacidadeMaxiama;
+    }
+
+    public void setCapacidadeMaxiama(Integer capacidadeMaxiama) {
+        this.capacidadeMaxiama = capacidadeMaxiama;
+    }
+
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
     }
 
     @Override
-    public String toString(){
-        return "Onibus [ Codigo = " + getCodigoOnibus()
-                + ", Nome = " + getNome()
-                + ", Quantidade de Assentos = " + getNmrAssentos()
-                + " onibusDisponivel =  " + disponibilidade
-                + " ]";
-    }
-
-    public boolean getDisponibilidade(){
-        return disponibilidade;
+    public String toString() {
+        return "Onibus{" +
+                "onibusID='" + onibusID + '\'' +
+                ", capacidadeMaxiama=" + capacidadeMaxiama +
+                ", motorista=" + motorista +
+                '}';
     }
 }
