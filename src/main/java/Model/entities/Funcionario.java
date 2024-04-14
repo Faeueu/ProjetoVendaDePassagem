@@ -1,7 +1,9 @@
 package Model.entities;
 
 public class Funcionario extends Pessoa{
+
     protected String funcionarioID;
+
     public Funcionario(String nome, String funcionarioID){
         super(nome);
         this.funcionarioID = funcionarioID;
@@ -11,9 +13,7 @@ public class Funcionario extends Pessoa{
         return funcionarioID;
     }
 
-    public void setFuncionarioID(String funcionarioID) {
-        this.funcionarioID = funcionarioID;
-    }
+    //Removi o set até pq o ID em tese nunca muda
 
     @Override
     public String toString() {
