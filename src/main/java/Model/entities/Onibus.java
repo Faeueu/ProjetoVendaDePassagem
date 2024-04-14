@@ -1,14 +1,21 @@
 package Model.entities;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Onibus {
+
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
     private final String onibusID;
     private Integer capacidadeMaxiama;
     private Motorista motorista;
+    private LocalDateTime horario;
 
-    public Onibus(String onibusID, Integer capacidadeMaxiama, Motorista motorista){
+    public Onibus(String onibusID, Integer capacidadeMaxiama, Motorista motorista,LocalDateTime horario){
         this.onibusID = onibusID;
         this.capacidadeMaxiama = capacidadeMaxiama;
         this.motorista = motorista;
+        this.horario = horario;
     }
 
     public String getOnibusID() {
@@ -27,9 +34,11 @@ public class Onibus {
         return motorista;
     }
 
-    public void setMotorista(Motorista motorista) {
-        this.motorista = motorista;
-    }
+    //Removi o set de motorista
+
+    public LocalDateTime getHorario(){return horario;}
+
+    public void setHorario(LocalDateTime horario){this.horario = horario;}
 
     @Override
     public String toString() {
