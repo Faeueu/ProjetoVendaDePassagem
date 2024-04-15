@@ -1,3 +1,4 @@
+/*
 package Model.entities;
 
 public class Estudante extends Cliente{
@@ -21,3 +22,4 @@ public class Estudante extends Cliente{
                 '}';
     }
 }
+*/
