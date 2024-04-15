@@ -41,9 +41,7 @@ public class Rota {
         return onibus;
     }
 
-    public void setOnibus(Onibus onibus) {
-        this.onibus = onibus;
-    }
+    //Removi o set de onibus
 
     @Override
     public String toString() {
