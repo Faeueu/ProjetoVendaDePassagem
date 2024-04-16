@@ -29,7 +29,7 @@ public class ClienteDAO {
 
             JOptionPane.showMessageDialog(null, "Cliente adcionado !");
         }catch (Exception eSQL){
-            JOptionPane.showMessageDialog(null, "Erro ao add cliente");
+            JOptionPane.showMessageDialog(null, "Erro ao add cliente" + eSQL.getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class ClienteDAO {
             ps.setString(2, cliente.getCpf());
             ps.setString(3, cliente.getTelefone());
             ps.setString(4, cliente.getEmail());
-            ps.setInt(5, cliente.getId_paciente());
+            ps.setInt(5, cliente.getId_cliente());
 
             ps.executeUpdate();
             ps.close();
@@ -62,7 +62,7 @@ public class ClienteDAO {
 
         if(opc == JOptionPane.YES_OPTION){
             try(PreparedStatement ps = conexao.prepareStatement(sql)){
-                ps.setInt(1, cliente.getId_paciente());
+                ps.setInt(1, cliente.getId_cliente());
                 ps.executeUpdate();
                 ps.close();
                 conexao.close();
@@ -85,7 +85,7 @@ public class ClienteDAO {
             ResultSet resultado = ps.executeQuery();
             while(resultado.next()){
                 Cliente cliente = new Cliente();
-                cliente.setId_paciente(resultado.getInt("id_cliente"));
+                cliente.setId_cliente(resultado.getInt("id_cliente"));
                 cliente.setNome(resultado.getString("nome"));
                 cliente.setCpf(resultado.getString("cpf"));
                 cliente.setTelefone(resultado.getString("telefone"));

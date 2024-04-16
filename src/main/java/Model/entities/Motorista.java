@@ -2,14 +2,19 @@ package Model.entities;
 
 public class Motorista extends Funcionario {
 
-    public Motorista(String nome, String motoristaID) {
-        super(nome, motoristaID);
+    private String id_motorista;
+
+
+
+    public Motorista(String nome, String id_motorista, int id_funcionario) {
+        super(nome, id_funcionario);
+        this.id_motorista = id_motorista;
     }
 
     @Override
     public String toString() {
         return "Motorista{" +
-                "funcionarioID='" + funcionarioID + '\'' +
+                "id_motorista='" + id_motorista + '\'' +
                 ", nome='" + nome + '\'' +
                 '}';
     }

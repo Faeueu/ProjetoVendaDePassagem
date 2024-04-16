@@ -2,22 +2,30 @@ package Model.entities;
 
 public class Funcionario extends Pessoa{
 
-    protected String funcionarioID;
+    private int id_funcionario;
 
-    public Funcionario(String nome, String funcionarioID){
+
+    public Funcionario(){
+        super(null);
+    }
+    public Funcionario(String nome, int id_funcionario){
         super(nome);
-        this.funcionarioID = funcionarioID;
+        this.id_funcionario = id_funcionario;
     }
 
-    public String getFuncionarioID() {
-        return funcionarioID;
+
+    public int getId_funcionario() {
+        return id_funcionario;
     }
 
-    //Removi o set até pq o ID em tese nunca muda
+    public void setId_funcionario(int id_funcionario) {
+        this.id_funcionario = id_funcionario;
+    }
 
     @Override
     public String toString() {
-        return "Funcionario{" + "nome='" + nome +
-                ", funcionarioID='" + funcionarioID + '}';
+        return "Funcionario{"
+                + "nome='" + nome +
+                ", funcionarioID='" + id_funcionario + '}';
     }
 }

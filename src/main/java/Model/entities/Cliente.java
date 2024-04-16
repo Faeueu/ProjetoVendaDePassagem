@@ -3,7 +3,7 @@ package Model.entities;
 
 public class Cliente extends Pessoa {
 
-    private int id_paciente;
+    private int id_cliente;
     protected String cpf;
     protected String telefone;
     protected String email;
@@ -12,9 +12,9 @@ public class Cliente extends Pessoa {
         super(null);
     }
 
-    public Cliente(String nome, int id_paciente, String cpf, String telefone, String email) {
+    public Cliente(String nome, int id_cliente, String cpf, String telefone, String email) {
         super(nome);
-        this.id_paciente = id_paciente;
+        this.id_cliente = id_cliente;
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
@@ -52,19 +52,19 @@ public class Cliente extends Pessoa {
         this.email = email;
     }
 
-    public int getId_paciente() {
-        return id_paciente;
+    public int getId_cliente() {
+        return id_cliente;
     }
 
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "id_paciente=" + id_paciente +
-
+                "id_cliente=" + id_cliente +
+                ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", telefone='" + telefone + '\'' +
                 ", email='" + email + '\'' +
