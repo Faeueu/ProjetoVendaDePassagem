@@ -92,8 +92,7 @@ public class ClienteDAO {
                 cliente.setEmail(resultado.getString("email"));
 
                 listaClientes.add(cliente);
-                JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea(listaClientes.toString())),
-                        "Lista de Clientes ", JOptionPane.INFORMATION_MESSAGE);
+           
             }
 
         }catch (Exception eSQL){
