@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/*
+
 import Model.entities.*;
 import Model.enums.StatusViagem;
 public class Rodoviaria {
@@ -689,3 +691,4 @@ public class Rodoviaria {
         return true;
     }
 }
+*/
