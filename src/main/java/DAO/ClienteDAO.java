@@ -1,100 +1,143 @@
 package DAO;
 
-import javax.swing.*;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import db.ConexaoBD;
+import Model.Interface.InterfaceClienteDAO;
+import Model.entities.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+public class ClienteDAO implements InterfaceClienteDAO{
+    Connection conexaoCliente;
+    PreparedStatement pesquisaCliente;
+    ResultSet resultadoCliente;
 
-public class ClienteDAO {
-    public void addCliente(Cliente cliente){
-        Connection conexao = ConexaoBd.getConexao();
+    public ClienteDAO(Connection conexaoCliente){
+        this.conexaoCliente = conexaoCliente;
+    }
 
-        String sql = "INSERT INTO cliente (nome, cpf, telefone, email) VALUES(?,?,?,?)";
+    @Override
+    public void adicionarCliente(String nome, String cpf, String telefone, String email, String login, String senha){
 
-        try(PreparedStatement ps = conexao.prepareStatement(sql)){
-            ps.setString(1, cliente.getNome());
-            ps.setString(2, cliente.getCpf());
-            ps.setString(3, cliente.getTelefone());
-            ps.setString(4, cliente.getEmail());
+        try {
+            pesquisaCliente = conexaoCliente.prepareStatement("insert into cliente (nome, cpf, telefone, email, login, senha)VALUES(?,?,?,?,?,?)");
+            pesquisaCliente.setString(1, nome);
+            pesquisaCliente.setString(2, cpf);
+            pesquisaCliente.setString(3, telefone);
+            pesquisaCliente.setString(4, email);
+            pesquisaCliente.setString(5, login);
+            pesquisaCliente.setString(6, senha);
 
-            ps.executeUpdate();
-            ps.close();
-            conexao.close();
+            pesquisaCliente.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Cliente adcionado !");
-        }catch (Exception eSQL){
-            JOptionPane.showMessageDialog(null, "Erro ao add cliente" + eSQL.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Erro ao adicionar cliente: " + ex);
+
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaCliente);
+
         }
     }
 
-    public void updateCliente(Cliente cliente){
-        Connection conexao = ConexaoBd.getConexao();
-        String sql = "UPDATE cliente SET nome = ?, cpf = ?, telefone = ?, email = ? WHERE id_cliente = ?";
+    @Override
+    public void buscarCliente(Integer id_cliente, Cliente cliente){
 
-        try(PreparedStatement ps = conexao.prepareStatement(sql)) {
-            ps.setString(1, cliente.getNome());
-            ps.setString(2, cliente.getCpf());
-            ps.setString(3, cliente.getTelefone());
-            ps.setString(4, cliente.getEmail());
-            ps.setInt(5, cliente.getId_cliente());
+        try{
+            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where id_cliente = ?");
+            pesquisaCliente.setInt(1, id_cliente);
 
-            ps.executeUpdate();
-            ps.close();
-            conexao.close();
+            resultadoCliente = pesquisaCliente.executeQuery();
+            resultadoCliente.next();
 
-            JOptionPane.showMessageDialog(null, "Cliente atualizado !");
-        }catch (Exception eSQL){
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar cliente");
+            cliente.setId_cliente(resultadoCliente.getInt("id_cliente"));
+            cliente.setNome(resultadoCliente.getString("nome"));
+            cliente.setCpf(resultadoCliente.getString("cpf"));
+            cliente.setTelefone(resultadoCliente.getString("telefone"));
+            cliente.setEmail(resultadoCliente.getString("email"));
+            cliente.setLogin(resultadoCliente.getString("login"));
+            cliente.setSenha(resultadoCliente.getString("senha"));
+
+            System.out.println(cliente);
+
+        } catch (SQLException ex) {
+            System.out.println("Erro ao buscar cliente: " + ex);
+
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+
         }
-
     }
 
-    public void deleteCliente(Cliente cliente){
-        Connection conexao = ConexaoBd.getConexao();
-        String sql = "DELETE FROM cliente WHERE id_cliente = ?";
-        int opc = JOptionPane.showConfirmDialog(null, "Deseja deletar o cliente "+cliente.getNome() + "?", "Excluir", JOptionPane.YES_NO_OPTION);
+    @Override
+    public void atualizarCliente(Integer id_cliente, String nome, String cpf, String telefone, String email, String login, String senha){
 
-        if(opc == JOptionPane.YES_OPTION){
-            try(PreparedStatement ps = conexao.prepareStatement(sql)){
-                ps.setInt(1, cliente.getId_cliente());
-                ps.executeUpdate();
-                ps.close();
-                conexao.close();
+        try {
+            pesquisaCliente = conexaoCliente.prepareStatement("update cliente set nome = ?, cpf = ?, telefone = ?, email = ?, login = ?, senha = ? where id_cliente = ?");
+            pesquisaCliente.setString(1, nome);
+            pesquisaCliente.setString(2, cpf);
+            pesquisaCliente.setString(3, telefone);
+            pesquisaCliente.setString(4, email);
+            pesquisaCliente.setString(5, login);
+            pesquisaCliente.setString(6, senha);
+            pesquisaCliente.setInt(7, id_cliente);
 
-                JOptionPane.showMessageDialog(null, "Cliente deletado !");
-            }catch (Exception eSQL){
-                JOptionPane.showMessageDialog(null, "Erro ao deletar cliente");
+            pesquisaCliente.executeUpdate();
+
+        }catch (SQLException ex) {
+            System.out.println("Erro ao atualizar cliente: " + ex);
+
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaCliente);
+
+        }
+    }
+
+    @Override
+    public void deletarCliente(Integer id_cliente){
+
+        try{
+            pesquisaCliente = conexaoCliente.prepareStatement("delete from cliente where id_cliente = ?");
+            pesquisaCliente.setInt(1, id_cliente);
+
+            pesquisaCliente.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println("Erro ao deletar cliente: " + ex);
+
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaCliente);
+
+        }
+    }
+
+    @Override
+    public void listarClientes(){
+
+        try {
+            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente");
+
+            resultadoCliente = pesquisaCliente.executeQuery();
+
+            while (resultadoCliente.next()){
+                Cliente cliente = new Cliente("","","","","","");
+                cliente.setId_cliente(resultadoCliente.getInt("id_cliente"));
+                cliente.setNome(resultadoCliente.getString("nome"));
+                cliente.setCpf(resultadoCliente.getString("cpf"));
+                cliente.setTelefone(resultadoCliente.getString("telefone"));
+                cliente.setEmail(resultadoCliente.getString("email"));
+                cliente.setLogin(resultadoCliente.getString("login"));
+                cliente.setSenha(resultadoCliente.getString("senha"));
+
+                System.out.println(cliente);
+
             }
+        } catch (SQLException ex) {
+            System.out.println("Erro ao listar clientes: " + ex);
+
+        } finally {
+
+            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
         }
-
-    }
-
-    public List<Cliente> printCliente(){
-        Connection conexao = ConexaoBd.getConexao();
-        List<Cliente> listaClientes = new ArrayList<>();
-        String sql = "SELECT * FROM cliente ORDER BY nome";
-
-        try(PreparedStatement ps = conexao.prepareStatement(sql)){
-
-            ResultSet resultado = ps.executeQuery();
-            while(resultado.next()){
-                Cliente cliente = new Cliente();
-                cliente.setId_cliente(resultado.getInt("id_cliente"));
-                cliente.setNome(resultado.getString("nome"));
-                cliente.setCpf(resultado.getString("cpf"));
-                cliente.setTelefone(resultado.getString("telefone"));
-                cliente.setEmail(resultado.getString("email"));
-
-                listaClientes.add(cliente);
-
-            }
-
-        }catch (Exception eSQL){
-            JOptionPane.showMessageDialog(null, "Erro ao listar os clientes");
-        }
-        return listaClientes;
     }
 }

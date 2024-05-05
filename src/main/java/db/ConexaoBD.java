@@ -3,9 +3,9 @@ package db;
 import java.sql.*;
 
 public class ConexaoBD {
-    private static final String URL = "jdbc:mysql://localhost:3306/BDguanabira";
+    private static final String URL = "jdbc:mysql://localhost:3306/teste";
     private static final String USER = "root";
-    private static final String PASSWORD = "admin";
+    private static final String PASSWORD = "12345";
 
     public static Connection getConexao(){
 
