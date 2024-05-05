@@ -1,15 +1,12 @@
 package DAO;
 
-import Model.entities.Cliente;
-import utils.ConexaoBd;
-
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 
 public class ClienteDAO {
     public void addCliente(Cliente cliente){
@@ -92,7 +89,7 @@ public class ClienteDAO {
                 cliente.setEmail(resultado.getString("email"));
 
                 listaClientes.add(cliente);
-           
+
             }
 
         }catch (Exception eSQL){

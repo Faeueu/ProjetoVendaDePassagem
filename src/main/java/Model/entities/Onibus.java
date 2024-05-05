@@ -1,51 +1,35 @@
 package Model.entities;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class Onibus {
+    protected Integer id_onibus;
+    protected Viagem viagem;
 
-    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
-    private final String onibusID;
-    private Integer capacidadeMaxiama;
-    private Motorista motorista;
-    private LocalDateTime horario;
-
-    public Onibus(String onibusID, Integer capacidadeMaxiama, Motorista motorista,LocalDateTime horario){
-        this.onibusID = onibusID;
-        this.capacidadeMaxiama = capacidadeMaxiama;
-        this.motorista = motorista;
-        this.horario = horario;
+    public Onibus(Integer id_onibus, Viagem viagem) {
+        this.id_onibus = id_onibus;
+        this.viagem = viagem;
     }
 
-    public String getOnibusID() {
-        return onibusID;
+    public Integer getId_onibus() {
+        return id_onibus;
     }
 
-    public Integer getCapacidadeMaxiama() {
-        return capacidadeMaxiama;
+    public void setId_onibus(Integer id_onibus) {
+        this.id_onibus = id_onibus;
     }
 
-    public void setCapacidadeMaxiama(Integer capacidadeMaxiama) {
-        this.capacidadeMaxiama = capacidadeMaxiama;
+    public Viagem getViagem() {
+        return viagem;
     }
 
-    public Motorista getMotorista() {
-        return motorista;
+    public void setViagem(Viagem viagem) {
+        this.viagem = viagem;
     }
-
-    //Removi o set de motorista
-
-    public LocalDateTime getHorario(){return horario;}
-
-    public void setHorario(LocalDateTime horario){this.horario = horario;}
 
     @Override
     public String toString() {
         return "Onibus{" +
-                "onibusID='" + onibusID + '\'' +
-                ", capacidadeMaxiama=" + capacidadeMaxiama +
-                ", motorista=" + motorista +
+                "id_onibus=" + id_onibus +
+                ", viagem=" + viagem +
                 '}';
     }
 }

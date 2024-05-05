@@ -5,7 +5,7 @@
 package View;
 
 import DAO.ClienteDAO;
-import Model.entities.Cliente;
+
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

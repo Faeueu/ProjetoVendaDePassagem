@@ -3,9 +3,6 @@ package DAO;
 
 
 
-import Model.entities.Funcionario;
-import utils.ConexaoBd;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

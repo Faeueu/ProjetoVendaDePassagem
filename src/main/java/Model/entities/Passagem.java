@@ -1,50 +1,52 @@
 package Model.entities;
 
 public class Passagem {
+    protected Integer id_passagem, id_cliente, id_onibus, id_viagem, id_assento;
 
-    private String passagemID;
-    private Rota rota;
-    private Onibus onibus;
-    private String destino;
-
-    public Passagem(String passagemID, Rota rota, Onibus onibus, String destino) {
-        this.passagemID = passagemID;
-        this.rota = rota;
-        this.onibus = onibus;
-        this.destino = destino;
+    public Passagem(Integer id_cliente, Integer id_onibus, Integer id_viagem, Integer id_assento) {
+        this.id_cliente = id_cliente;
+        this.id_onibus = id_onibus;
+        this.id_viagem = id_viagem;
+        this.id_assento = id_assento;
     }
 
-    public String getPassagemID() {
-        return passagemID;
+    public Integer getId_passagem() {
+        return id_passagem;
     }
 
-    public Rota getRota() {
-        return rota;
+    public void setId_passagem(Integer id_passagem) {
+        this.id_passagem = id_passagem;
     }
 
-    public Onibus getOnibus() {
-        return onibus;
+    public Integer getId_cliente() {
+        return id_cliente;
     }
 
-    public String getDestino() {
-        return destino;
+    public void setId_cliente(Integer id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public Integer getId_onibus() {
+        return id_onibus;
     }
 
-    public void setPassagemID(String passagemID) {
-        this.passagemID = passagemID;
+    public void setId_onibus(Integer id_onibus) {
+        this.id_onibus = id_onibus;
     }
 
-    @Override
-    public String toString() {
-        return "Passagem{" +
-                "passagemID='" + passagemID + '\'' +
-                ", rota=" + rota +
-                ", onibus=" + onibus +
-                ", destino='" + destino + '\'' +
-                '}';
+    public Integer getId_viagem() {
+        return id_viagem;
+    }
+
+    public void setId_viagem(Integer id_viagem) {
+        this.id_viagem = id_viagem;
+    }
+
+    public Integer getId_assento() {
+        return id_assento;
+    }
+
+    public void setId_assento(Integer id_assento) {
+        this.id_assento = id_assento;
     }
 }
