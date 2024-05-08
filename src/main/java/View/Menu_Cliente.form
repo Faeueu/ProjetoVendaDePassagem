@@ -95,7 +95,7 @@
                                       <Component id="jB_cancelar" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="239" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                                       <Component id="jT_id" min="-2" pref="94" max="-2" attributes="0"/>
                                   </Group>
                               </Group>

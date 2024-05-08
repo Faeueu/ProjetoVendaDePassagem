@@ -3,6 +3,8 @@ package DAO;
 import db.ConexaoBD;
 import Model.Interface.InterfaceClienteDAO;
 import Model.entities.Cliente;
+
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +34,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
             pesquisaCliente.executeUpdate();
 
         } catch (SQLException ex) {
-            System.out.println("Erro ao adicionar cliente: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar cliente");
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente);
@@ -61,7 +63,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
             System.out.println(cliente);
 
         } catch (SQLException ex) {
-            System.out.println("Erro ao buscar cliente: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
@@ -85,7 +87,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
             pesquisaCliente.executeUpdate();
 
         }catch (SQLException ex) {
-            System.out.println("Erro ao atualizar cliente: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cliente");
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente);
@@ -103,7 +105,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
             pesquisaCliente.executeUpdate();
 
         } catch (SQLException ex) {
-            System.out.println("Erro ao deletar cliente: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao deletar cliente");
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente);
@@ -138,6 +140,34 @@ public class ClienteDAO implements InterfaceClienteDAO{
         } finally {
 
             ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+        }
+    }
+
+    @Override
+    public void clienteLogin(String login, String senha, Cliente cliente){
+
+        try{
+            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where login = ? and senha = ?");
+            pesquisaCliente.setString(1, login);
+            pesquisaCliente.setString(2, senha);
+
+            resultadoCliente = pesquisaCliente.executeQuery();
+            resultadoCliente.next();
+
+            cliente.setId_cliente(resultadoCliente.getInt("id_cliente"));
+            cliente.setNome(resultadoCliente.getString("nome"));
+            cliente.setCpf(resultadoCliente.getString("cpf"));
+            cliente.setTelefone(resultadoCliente.getString("telefone"));
+            cliente.setEmail(resultadoCliente.getString("email"));
+            cliente.setLogin(resultadoCliente.getString("login"));
+            cliente.setSenha(resultadoCliente.getString("senha"));
+
+        } catch (SQLException ex) {
+            System.out.println("Erro ao logar: " + ex);
+
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+
         }
     }
 }
