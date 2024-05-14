@@ -165,6 +165,7 @@ public class Tela_Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jT_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_loginActionPerformed
