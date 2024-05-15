@@ -3,6 +3,8 @@ package DAO;
 import db.ConexaoBD;
 import Model.Interface.*;
 
+import java.sql.SQLException;
+
 public class DAOfactory {
     public static InterfaceClienteDAO criarClienteDAO(){
         return new ClienteDAO(ConexaoBD.getConexao());

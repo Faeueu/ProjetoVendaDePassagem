@@ -43,11 +43,12 @@ public class ClienteDAO implements InterfaceClienteDAO{
     }
 
     @Override
-    public void buscarCliente(Integer id_cliente, Cliente cliente){
+    public void buscarCliente(String login, String senha, Cliente cliente){
 
         try{
-            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where id_cliente = ?");
-            pesquisaCliente.setInt(1, id_cliente);
+            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where login = ? and senha = ?");
+            pesquisaCliente.setString(1, login);
+            pesquisaCliente.setString(2, senha);
 
             resultadoCliente = pesquisaCliente.executeQuery();
             resultadoCliente.next();
@@ -59,8 +60,6 @@ public class ClienteDAO implements InterfaceClienteDAO{
             cliente.setEmail(resultadoCliente.getString("email"));
             cliente.setLogin(resultadoCliente.getString("login"));
             cliente.setSenha(resultadoCliente.getString("senha"));
-
-            System.out.println(cliente);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");

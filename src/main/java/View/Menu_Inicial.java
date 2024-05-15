@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import Model.entities.Cliente;
 
 /**
  *
@@ -14,6 +15,9 @@ public class Menu_Inicial extends javax.swing.JFrame {
      * Creates new form Menu_Inicial
      */
     public Menu_Inicial() {
+        initComponents();
+    }
+    public Menu_Inicial(Cliente cliente) {
         initComponents();
     }
 
