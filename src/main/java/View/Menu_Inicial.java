@@ -41,7 +41,7 @@ public class Menu_Inicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/onbius.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\edson\\ProjetoVendaDePassagem\\src\\main\\java\\image\\onbius.jpg")); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
