@@ -4,6 +4,9 @@
  */
 package View;
 
+import Model.entities.Cliente;
+import Model.services.ServiceCadastro;
+
 /**
  *
  * @author macia
@@ -228,9 +231,17 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_EmailCadastroActionPerformed
 
     private void jButton_RealizarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RealizarCadastroActionPerformed
-
-
-
+        ServiceCadastro cadastro = new ServiceCadastro();
+        String nome = jT_NomeCadastro.getText();
+        String cpf = jF_CpfCadastro.getText();
+        String telefone = jF_TelefoneCadastro.getText();
+        String email = jT_EmailCadastro.getText();
+        String login = jT_LoginCadastro.getText();
+        String senha = jP_SenhaCadastro.getText();
+        Cliente cliente = cadastro.Cadastrar(nome,cpf,telefone,email,login,senha);
+        dispose();
+        Menu_Inicial menu = new Menu_Inicial(cliente);
+        menu.setVisible(true);
     }//GEN-LAST:event_jButton_RealizarCadastroActionPerformed
 
     private void jF_CpfCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jF_CpfCadastroActionPerformed
@@ -238,7 +249,9 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jF_CpfCadastroActionPerformed
 
     private void jButton_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_voltarActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Tela_Login login = new Tela_Login();
+        login.setVisible(true);
     }//GEN-LAST:event_jButton_voltarActionPerformed
 
     private void jF_TelefoneCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jF_TelefoneCadastroActionPerformed
