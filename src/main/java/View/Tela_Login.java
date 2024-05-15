@@ -162,7 +162,7 @@ public class Tela_Login extends javax.swing.JFrame {
         String senha = jPasswordField1.getText();
         Cliente cliente = login.logar(loga,senha);
         dispose();
-        Menu_Inicial menu = new Menu_Inicial(cliente);
+        Menu_locar menu = new Menu_locar(cliente);
         menu.setVisible(true);
     }//GEN-LAST:event_jButton_EntrarActionPerformed
 

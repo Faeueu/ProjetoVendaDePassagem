@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConexaoBD {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/guanabira";
     private static final String USER = "root";
-    private static final String PASSWORD = "admin";
+    private static final String PASSWORD = "root1234";
 
     public static Connection getConexao(){
 

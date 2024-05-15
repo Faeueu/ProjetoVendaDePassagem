@@ -32,6 +32,8 @@ public class ClienteDAO implements InterfaceClienteDAO{
             pesquisaCliente.setString(6, senha);
 
             pesquisaCliente.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Cadastro realizado!!");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar cliente");
