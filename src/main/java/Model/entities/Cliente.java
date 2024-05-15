@@ -16,6 +16,9 @@ public class Cliente {
         this.login = login;
         this.senha = senha;
     }
+    public Cliente(){
+
+    }
 
     public Integer getId_cliente(){
         return id_cliente;
