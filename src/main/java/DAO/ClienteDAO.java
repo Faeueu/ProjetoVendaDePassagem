@@ -132,7 +132,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
                 cliente.setLogin(resultadoCliente.getString("login"));
                 cliente.setSenha(resultadoCliente.getString("senha"));
 
-                System.out.println(cliente);
+                
 
             }
         } catch (SQLException ex) {
@@ -162,9 +162,10 @@ public class ClienteDAO implements InterfaceClienteDAO{
             cliente.setEmail(resultadoCliente.getString("email"));
             cliente.setLogin(resultadoCliente.getString("login"));
             cliente.setSenha(resultadoCliente.getString("senha"));
-
+            
+            
         } catch (SQLException ex) {
-            System.out.println("Erro ao logar: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao logar");
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);

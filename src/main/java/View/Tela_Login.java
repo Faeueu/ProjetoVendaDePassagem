@@ -32,7 +32,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton_Entrar = new javax.swing.JButton();
+        jButton_Logar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jT_login = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -48,12 +48,12 @@ public class Tela_Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Login");
 
-        jButton_Entrar.setBackground(new java.awt.Color(0, 83, 97));
-        jButton_Entrar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Entrar.setText("Entrar");
-        jButton_Entrar.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Logar.setBackground(new java.awt.Color(0, 83, 97));
+        jButton_Logar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Logar.setText("Logar");
+        jButton_Logar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_EntrarActionPerformed(evt);
+                jButton_LogarActionPerformed(evt);
             }
         });
 
@@ -68,7 +68,7 @@ public class Tela_Login extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton_Logar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -77,7 +77,7 @@ public class Tela_Login extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_Logar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
 
@@ -156,7 +156,7 @@ public class Tela_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_loginActionPerformed
 
-    private void jButton_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EntrarActionPerformed
+    private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogarActionPerformed
         LoginCliente login = new LoginCliente();
         String loga = jT_login.getText();
         String senha = jPasswordField1.getText();
@@ -164,7 +164,7 @@ public class Tela_Login extends javax.swing.JFrame {
         dispose();
         Menu_locar menu = new Menu_locar(cliente);
         menu.setVisible(true);
-    }//GEN-LAST:event_jButton_EntrarActionPerformed
+    }//GEN-LAST:event_jButton_LogarActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         dispose();
@@ -188,7 +188,7 @@ public class Tela_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Entrar;
+    private javax.swing.JButton jButton_Logar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

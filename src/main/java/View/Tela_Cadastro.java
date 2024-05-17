@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author macia
+ * @author Faeu
  */
 public class Tela_Cadastro extends javax.swing.JFrame {
 
