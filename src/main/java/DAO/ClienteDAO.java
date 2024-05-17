@@ -32,6 +32,8 @@ public class ClienteDAO implements InterfaceClienteDAO{
             pesquisaCliente.setString(6, senha);
 
             pesquisaCliente.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Cadastro realizado!!");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar cliente");
@@ -130,7 +132,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
                 cliente.setLogin(resultadoCliente.getString("login"));
                 cliente.setSenha(resultadoCliente.getString("senha"));
 
-                System.out.println(cliente);
+                
 
             }
         } catch (SQLException ex) {
@@ -160,13 +162,40 @@ public class ClienteDAO implements InterfaceClienteDAO{
             cliente.setEmail(resultadoCliente.getString("email"));
             cliente.setLogin(resultadoCliente.getString("login"));
             cliente.setSenha(resultadoCliente.getString("senha"));
-
+            
+            
         } catch (SQLException ex) {
-            System.out.println("Erro ao logar: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao logar");
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
 
         }
+    }
+
+    @Override
+    public Cliente login(String login){
+        try{
+            pesquisaCliente = conexaoCliente.prepareStatement("SELECT * FROM cliente");
+
+            resultadoCliente = pesquisaCliente.executeQuery();
+
+            Cliente cliente = new Cliente();
+
+            while (resultadoCliente.next()) {
+                if(resultadoCliente.getString("login").equals(login)){
+                    System.out.println("Usuario já cadastrado!");
+                    return cliente;
+                }else{
+                    System.out.println("Usuario cadastrado com sucesso!");
+                    return cliente;
+                }
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }finally {
+            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+        }
+        return null;
     }
 }

@@ -6,10 +6,11 @@ package View;
 
 import Model.entities.Cliente;
 import Model.services.ServiceCadastro;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author macia
+ * @author Faeu
  */
 public class Tela_Cadastro extends javax.swing.JFrame {
 
@@ -240,8 +241,9 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         String senha = jP_SenhaCadastro.getText();
         Cliente cliente = cadastro.Cadastrar(nome,cpf,telefone,email,login,senha);
         dispose();
-        Menu_Inicial menu = new Menu_Inicial(cliente);
+        Menu_locar menu = new Menu_locar(cliente);
         menu.setVisible(true);
+       
     }//GEN-LAST:event_jButton_RealizarCadastroActionPerformed
 
     private void jF_CpfCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jF_CpfCadastroActionPerformed
