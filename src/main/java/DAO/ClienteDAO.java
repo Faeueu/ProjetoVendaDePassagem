@@ -172,4 +172,30 @@ public class ClienteDAO implements InterfaceClienteDAO{
 
         }
     }
+
+    @Override
+    public Cliente login(String login){
+        try{
+            pesquisaCliente = conexaoCliente.prepareStatement("SELECT * FROM cliente");
+
+            resultadoCliente = pesquisaCliente.executeQuery();
+
+            Cliente cliente = new Cliente();
+
+            while (resultadoCliente.next()) {
+                if(resultadoCliente.getString("login").equals(login)){
+                    System.out.println("Usuario já cadastrado!");
+                    return cliente;
+                }else{
+                    System.out.println("Usuario cadastrado com sucesso!");
+                    return cliente;
+                }
+            }
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }finally {
+            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+        }
+        return null;
+    }
 }
