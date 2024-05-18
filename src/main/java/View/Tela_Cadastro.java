@@ -5,7 +5,7 @@
 package View;
 
 import Model.entities.Cliente;
-import Model.services.ServiceCadastro;
+import Model.services.CadastroService;
 import javax.swing.JOptionPane;
 
 /**
@@ -365,7 +365,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
 
     private void jButton_RealizarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RealizarCadastroActionPerformed
 
-        ServiceCadastro cadastro = new ServiceCadastro();
+        CadastroService cadastro = new CadastroService();
         String nome = jT_NomeCadastro.getText();
         String cpf = jF_CpfCadastro.getText();
         String telefone = jF_TelefoneCadastro.getText();

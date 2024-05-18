@@ -5,7 +5,7 @@
 package View;
 
 import Model.entities.Cliente;
-import Model.services.LoginCliente;
+import Model.services.LoginClienteService;
 
 import javax.swing.*;
 
@@ -188,20 +188,22 @@ public class Tela_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_loginActionPerformed
 
     private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogarActionPerformed
-        if(jT_login.getText().isEmpty() || jPasswordField1.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos!");
 
-        } else{
-            LoginCliente login = new LoginCliente();
-            String loga = jT_login.getText();
-            String senha = jPasswordField1.getText();
-            Cliente cliente = login.logar(loga,senha);
+        LoginClienteService login = new LoginClienteService();
+        String loga = jT_login.getText();
+        String senha = jPasswordField1.getText();
+        Cliente cliente = login.logar(loga,senha);
+
+        if(cliente.getId_cliente() == null){
+            JOptionPane.showMessageDialog(null, "Altere seus dados!");
+
+        } else {
             dispose();
             Menu_locar menu = new Menu_locar(cliente);
             menu.setVisible(true);
-        }
 
-    }//GEN-LAST:event_jButton_LogarActionPerformed
+        }
+    }
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         dispose();
