@@ -15,6 +15,6 @@ public class Main {
 
         InterfaceClienteDAO interfaceClienteDAO = DAOfactory.criarClienteDAO();
 
-        interfaceClienteDAO.login("joaozinho");
+
     }
 }

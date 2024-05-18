@@ -10,17 +10,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ClienteDAO implements InterfaceClienteDAO{
+public class ClienteDAO implements InterfaceClienteDAO {
     Connection conexaoCliente;
     PreparedStatement pesquisaCliente;
     ResultSet resultadoCliente;
 
-    public ClienteDAO(Connection conexaoCliente){
+    public ClienteDAO(Connection conexaoCliente) {
         this.conexaoCliente = conexaoCliente;
     }
 
     @Override
-    public void adicionarCliente(String nome, String cpf, String telefone, String email, String login, String senha){
+    public void adicionarCliente(String nome, String cpf, String telefone, String email, String login, String senha) {
 
         try {
             pesquisaCliente = conexaoCliente.prepareStatement("insert into cliente (nome, cpf, telefone, email, login, senha)VALUES(?,?,?,?,?,?)");
@@ -32,7 +32,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
             pesquisaCliente.setString(6, senha);
 
             pesquisaCliente.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Cadastro realizado!!");
 
         } catch (SQLException ex) {
@@ -45,9 +45,9 @@ public class ClienteDAO implements InterfaceClienteDAO{
     }
 
     @Override
-    public void buscarCliente(String login, String senha, Cliente cliente){
+    public void buscarCliente(String login, String senha, Cliente cliente) {
 
-        try{
+        try {
             pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where login = ? and senha = ?");
             pesquisaCliente.setString(1, login);
             pesquisaCliente.setString(2, senha);
@@ -64,16 +64,16 @@ public class ClienteDAO implements InterfaceClienteDAO{
             cliente.setSenha(resultadoCliente.getString("senha"));
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");
+            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente" + ex);
 
         } finally {
-            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+            ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
 
         }
     }
 
     @Override
-    public void atualizarCliente(Integer id_cliente, String nome, String cpf, String telefone, String email, String login, String senha){
+    public void atualizarCliente(Integer id_cliente, String nome, String cpf, String telefone, String email, String login, String senha) {
 
         try {
             pesquisaCliente = conexaoCliente.prepareStatement("update cliente set nome = ?, cpf = ?, telefone = ?, email = ?, login = ?, senha = ? where id_cliente = ?");
@@ -87,7 +87,7 @@ public class ClienteDAO implements InterfaceClienteDAO{
 
             pesquisaCliente.executeUpdate();
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar cliente");
 
         } finally {
@@ -97,9 +97,9 @@ public class ClienteDAO implements InterfaceClienteDAO{
     }
 
     @Override
-    public void deletarCliente(Integer id_cliente){
+    public void deletarCliente(Integer id_cliente) {
 
-        try{
+        try {
             pesquisaCliente = conexaoCliente.prepareStatement("delete from cliente where id_cliente = ?");
             pesquisaCliente.setInt(1, id_cliente);
 
@@ -115,15 +115,15 @@ public class ClienteDAO implements InterfaceClienteDAO{
     }
 
     @Override
-    public void listarClientes(){
+    public void listarClientes() {
 
         try {
             pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente");
 
             resultadoCliente = pesquisaCliente.executeQuery();
 
-            while (resultadoCliente.next()){
-                Cliente cliente = new Cliente("","","","","","");
+            while (resultadoCliente.next()) {
+                Cliente cliente = new Cliente("", "", "", "", "", "");
                 cliente.setId_cliente(resultadoCliente.getInt("id_cliente"));
                 cliente.setNome(resultadoCliente.getString("nome"));
                 cliente.setCpf(resultadoCliente.getString("cpf"));
@@ -132,7 +132,6 @@ public class ClienteDAO implements InterfaceClienteDAO{
                 cliente.setLogin(resultadoCliente.getString("login"));
                 cliente.setSenha(resultadoCliente.getString("senha"));
 
-                
 
             }
         } catch (SQLException ex) {
@@ -140,14 +139,14 @@ public class ClienteDAO implements InterfaceClienteDAO{
 
         } finally {
 
-            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+            ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
         }
     }
 
     @Override
-    public void clienteLogin(String login, String senha, Cliente cliente){
+    public void clienteLogin(String login, String senha, Cliente cliente) {
 
-        try{
+        try {
             pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where login = ? and senha = ?");
             pesquisaCliente.setString(1, login);
             pesquisaCliente.setString(2, senha);
@@ -162,40 +161,36 @@ public class ClienteDAO implements InterfaceClienteDAO{
             cliente.setEmail(resultadoCliente.getString("email"));
             cliente.setLogin(resultadoCliente.getString("login"));
             cliente.setSenha(resultadoCliente.getString("senha"));
-            
-            
+
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao logar");
 
         } finally {
-            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+            ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
 
         }
     }
 
     @Override
-    public Cliente login(String login){
-        try{
+    public boolean login(String login) {
+
+        try {
             pesquisaCliente = conexaoCliente.prepareStatement("SELECT * FROM cliente");
 
             resultadoCliente = pesquisaCliente.executeQuery();
 
-            Cliente cliente = new Cliente();
-
             while (resultadoCliente.next()) {
-                if(resultadoCliente.getString("login").equals(login)){
-                    System.out.println("Usuario já cadastrado!");
-                    return cliente;
-                }else{
-                    System.out.println("Usuario cadastrado com sucesso!");
-                    return cliente;
-                }
+                if (resultadoCliente.getString("login").equals(login)) {
+                    JOptionPane.showMessageDialog(null, "login invalido!");
+                    return true;
+                } 
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
-        }finally {
-            ConexaoBD.closeAcesso(pesquisaCliente,resultadoCliente);
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
         }
-        return null;
+        return false;
     }
 }

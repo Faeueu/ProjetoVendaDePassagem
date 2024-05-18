@@ -3,9 +3,9 @@ package db;
 import java.sql.*;
 
 public class ConexaoBD {
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/teste";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/bdguanabira";
     private static final String USER = "root";
-    private static final String PASSWORD = "12345";
+    private static final String PASSWORD = "admin";
 
     public static Connection getConexao(){
 
@@ -19,20 +19,6 @@ public class ConexaoBD {
 
         }
     }
-
-    public static void closeConexao(Connection conexao){
-
-        try {
-            if (conexao != null) {
-                conexao.close();
-
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException();
-
-        }
-    }
-
     public static void closeAcesso(PreparedStatement pesquisa){
 
         try {
@@ -41,7 +27,7 @@ public class ConexaoBD {
 
             }
         } catch (SQLException e) {
-            throw new RuntimeException();
+            throw new RuntimeException(e);
 
         }
     }
@@ -55,7 +41,7 @@ public class ConexaoBD {
 
             }
         } catch (SQLException e) {
-            throw new RuntimeException();
+            throw new RuntimeException(e);
 
         }
     }

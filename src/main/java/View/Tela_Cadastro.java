@@ -240,9 +240,15 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         String login = jT_LoginCadastro.getText();
         String senha = jP_SenhaCadastro.getText();
         Cliente cliente = cadastro.Cadastrar(nome,cpf,telefone,email,login,senha);
-        dispose();
-        Menu_locar menu = new Menu_locar(cliente);
-        menu.setVisible(true);
+        if(cliente.getId_cliente() == null){
+
+        }
+        else {
+            dispose();
+            Menu_locar menu = new Menu_locar(cliente);
+            menu.setVisible(true);
+
+        }
        
     }//GEN-LAST:event_jButton_RealizarCadastroActionPerformed
 
