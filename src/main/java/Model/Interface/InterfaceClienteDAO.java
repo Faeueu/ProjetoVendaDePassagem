@@ -9,5 +9,5 @@ public interface InterfaceClienteDAO {
     void deletarCliente(Integer id_cliente);
     void listarClientes();
     void clienteLogin(String login, String senha, Cliente cliente);
-    boolean login(String login);
+    boolean verificarLogin(String login);
 }

@@ -173,7 +173,7 @@ public class ClienteDAO implements InterfaceClienteDAO {
     }
 
     @Override
-    public boolean login(String login) {
+    public boolean verificarLogin(String login) {
 
         try {
             pesquisaCliente = conexaoCliente.prepareStatement("SELECT * FROM cliente");
@@ -184,13 +184,17 @@ public class ClienteDAO implements InterfaceClienteDAO {
                 if (resultadoCliente.getString("login").equals(login)) {
                     JOptionPane.showMessageDialog(null, "login invalido!");
                     return true;
-                } 
+
+                }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+
         } finally {
             ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
+
         }
         return false;
+
     }
 }
