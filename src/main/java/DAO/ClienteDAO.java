@@ -45,12 +45,13 @@ public class ClienteDAO implements InterfaceClienteDAO {
     }
 
     @Override
-    public void buscarCliente(String login, String senha, Cliente cliente) {
+    public Cliente buscarCliente(String cpf) {
+
+        Cliente cliente = new Cliente();
 
         try {
-            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where login = ? and senha = ?");
-            pesquisaCliente.setString(1, login);
-            pesquisaCliente.setString(2, senha);
+            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where cpf = ?");
+            pesquisaCliente.setString(1, cpf);
 
             resultadoCliente = pesquisaCliente.executeQuery();
             resultadoCliente.next();
@@ -70,6 +71,7 @@ public class ClienteDAO implements InterfaceClienteDAO {
             ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
 
         }
+        return cliente;
     }
 
     @Override
@@ -144,7 +146,9 @@ public class ClienteDAO implements InterfaceClienteDAO {
     }
 
     @Override
-    public void clienteLogin(String login, String senha, Cliente cliente) {
+    public Cliente clienteLogin(String login, String senha) {
+
+        Cliente cliente = new Cliente();
 
         try {
             pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente where login = ? and senha = ?");
@@ -162,7 +166,6 @@ public class ClienteDAO implements InterfaceClienteDAO {
             cliente.setLogin(resultadoCliente.getString("login"));
             cliente.setSenha(resultadoCliente.getString("senha"));
 
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao logar");
 
@@ -170,6 +173,7 @@ public class ClienteDAO implements InterfaceClienteDAO {
             ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
 
         }
+        return cliente;
     }
 
     @Override

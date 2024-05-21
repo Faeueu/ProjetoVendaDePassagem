@@ -28,8 +28,7 @@ public class LoginClienteService {
         boolean verificarDados = verificarDados(login,senha);
 
         if(verificarDados){
-            ICD.buscarCliente(login, senha, cliente);
-            return  cliente;
+            return ICD.clienteLogin(login, senha);
 
         } else {
             return cliente;

@@ -40,8 +40,7 @@ public class CadastroService {
 
         if (verificarDados){
             ICD.adicionarCliente(nome, cpf, telefone, email, login, senha);
-            ICD.buscarCliente(login, senha, cliente);
-            return cliente;
+            return ICD.buscarCliente(cpf);
 
         } else {
             return cliente;
