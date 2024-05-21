@@ -8,4 +8,5 @@ public interface InterfacePassagemDAO {
     void atualizarPassagem(Integer id_passagem, Integer id_cliente, Integer id_onibus, Integer id_viagem, Integer id_assento);
     void deletarPassagem(Integer id_passagem);
     void listarPassagensCliente(Integer id_cliente);
+
 }

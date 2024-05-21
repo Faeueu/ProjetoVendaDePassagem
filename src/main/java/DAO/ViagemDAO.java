@@ -37,23 +37,21 @@ public class ViagemDAO implements InterfaceViagemDAO {
     }
 
     @Override
-    public void buscarViagem(Integer id_viagem, Viagem viagem){
+    public Viagem buscarViagem(String Origem, String horarioSaida, String Destino, String horarioChegada){
+
+        Viagem viagem = new Viagem(Origem,horarioSaida,Destino,horarioChegada);
 
         try {
-            pesquisaViagem = conexaoviagem.prepareStatement("select * from viagem where id_viagem = ?");
-            pesquisaViagem.setInt(1, id_viagem);
+            pesquisaViagem = conexaoviagem.prepareStatement("select * from viagem where Origem = ? and horarioSaida = ? and Destino = ? and horarioChegada = ?");
+            pesquisaViagem.setString(1, Origem);
+            pesquisaViagem.setObject(2, horarioSaida);
+            pesquisaViagem.setString(1, Destino);
+            pesquisaViagem.setObject(1, horarioChegada);
 
             resultadoViagem = pesquisaViagem.executeQuery();
-
             resultadoViagem.next();
 
             viagem.setId_viagem(resultadoViagem.getInt("id_viagem"));
-            viagem.setOrigem(resultadoViagem.getString("origem"));
-            viagem.setHorarioSaida((LocalDateTime)resultadoViagem.getObject("horarioSaida"));
-            viagem.setDestino(resultadoViagem.getString("destino"));
-            viagem.setHorarioChegada((LocalDateTime)resultadoViagem.getObject("horarioChegada"));
-
-            System.out.println(viagem);
 
         } catch (SQLException e) {
             System.out.println("Erro ao buscar viagem! " + e);
@@ -62,6 +60,8 @@ public class ViagemDAO implements InterfaceViagemDAO {
             ConexaoBD.closeAcesso(pesquisaViagem,resultadoViagem);
 
         }
+        return viagem;
+
     }
 
     @Override

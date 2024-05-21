@@ -15,7 +15,6 @@ public class PassagemDAO implements InterfacePassagemDAO{
         this.conexaoPassagem = conexaoPassagem;
     }
 
-
     void ocuparAssento(Integer id_assento){
 
         try {
