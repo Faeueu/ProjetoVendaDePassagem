@@ -7,7 +7,6 @@ public interface InterfaceClienteDAO {
     Cliente buscarCliente(String cpf);
     void atualizarCliente(Integer id_cliente, String nome, String cpf, String telefone, String email, String login, String senha);
     void deletarCliente(Integer id_cliente);
-    void listarClientes();
     Cliente clienteLogin(String login, String senha);
     boolean verificarLogin(String login);
 }

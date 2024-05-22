@@ -70,6 +70,7 @@ public class AssentoDAO implements InterfaceAssentoDAO {
 
         }
         return id_assento;
+
     }
 
     @Override
@@ -86,6 +87,24 @@ public class AssentoDAO implements InterfaceAssentoDAO {
 
         }catch (SQLException ex) {
             System.out.println("Erro ao atualizar assento: " + ex);
+
+        } finally {
+            ConexaoBD.closeAcesso(pesquisaAssento);
+
+        }
+    }
+
+    @Override
+    public void atualizarAssento(Integer id_assento) {
+
+        try {
+            pesquisaAssento = conexaoAssento.prepareStatement("UPDATE assento set ocupado = true where id_assento = ?");
+            pesquisaAssento.setInt(1,id_assento);
+
+            pesquisaAssento.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println("Erro ao adicionar assento: " + ex);
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaAssento);
@@ -144,25 +163,7 @@ public class AssentoDAO implements InterfaceAssentoDAO {
             ConexaoBD.closeAcesso(pesquisaAssento,resultadoAssento);
 
         }
-
         return assentos;
-    }
 
-    @Override
-    public void ocuparAssento(Integer id_assento) {
-
-        try {
-            pesquisaAssento = conexaoAssento.prepareStatement("UPDATE assento set ocupado = true where id_assento = ?");
-            pesquisaAssento.setInt(1,id_assento);
-
-            pesquisaAssento.executeUpdate();
-
-        } catch (SQLException ex) {
-            System.out.println("Erro ao adicionar assento: " + ex);
-
-        } finally {
-            ConexaoBD.closeAcesso(pesquisaAssento);
-
-        }
     }
 }

@@ -117,35 +117,6 @@ public class ClienteDAO implements InterfaceClienteDAO {
     }
 
     @Override
-    public void listarClientes() {
-
-        try {
-            pesquisaCliente = conexaoCliente.prepareStatement("select * from cliente");
-
-            resultadoCliente = pesquisaCliente.executeQuery();
-
-            while (resultadoCliente.next()) {
-                Cliente cliente = new Cliente("", "", "", "", "", "");
-                cliente.setId_cliente(resultadoCliente.getInt("id_cliente"));
-                cliente.setNome(resultadoCliente.getString("nome"));
-                cliente.setCpf(resultadoCliente.getString("cpf"));
-                cliente.setTelefone(resultadoCliente.getString("telefone"));
-                cliente.setEmail(resultadoCliente.getString("email"));
-                cliente.setLogin(resultadoCliente.getString("login"));
-                cliente.setSenha(resultadoCliente.getString("senha"));
-
-
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro ao listar clientes: " + ex);
-
-        } finally {
-
-            ConexaoBD.closeAcesso(pesquisaCliente, resultadoCliente);
-        }
-    }
-
-    @Override
     public Cliente clienteLogin(String login, String senha) {
 
         Cliente cliente = new Cliente();

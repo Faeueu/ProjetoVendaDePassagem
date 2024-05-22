@@ -103,40 +103,4 @@ public class ViagemDAO implements InterfaceViagemDAO {
 
         }
     }
-
-    @Override
-    public Passagem locarPassagem(Integer id_viagem, Integer numero) {
-
-
-        return null;
-    }
-
-    @Override
-    public void listarviagens() {
-
-        try {
-            pesquisaViagem = conexaoviagem.prepareStatement("select * from viagem");
-
-            resultadoViagem = pesquisaViagem.executeQuery();
-
-            while (resultadoViagem.next()){
-
-                Viagem viagem = new Viagem("","","2004/04/04 09:09:08","2004/04/04 09:09:08");
-                viagem.setId_viagem(resultadoViagem.getInt("id_viagem"));
-                viagem.setOrigem(resultadoViagem.getString("origem"));
-                viagem.setHorarioSaida((LocalDateTime)resultadoViagem.getObject("horarioSaida"));
-                viagem.setDestino(resultadoViagem.getString("destino"));
-                viagem.setHorarioChegada((LocalDateTime)resultadoViagem.getObject("horarioChegada"));
-
-                System.out.println(viagem);
-
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erro ao listar viagens: " + ex);
-
-        } finally {
-
-            ConexaoBD.closeAcesso(pesquisaViagem,resultadoViagem);
-        }
-    }
 }

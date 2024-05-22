@@ -1,5 +1,6 @@
 package Model.Interface;
 
+import Model.entities.Passagem;
 import Model.entities.Viagem;
 
 public interface InterfacePassagemDAO {

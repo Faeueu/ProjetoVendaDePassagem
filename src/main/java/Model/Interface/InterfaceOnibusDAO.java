@@ -7,6 +7,4 @@ public interface InterfaceOnibusDAO {
     Integer buscarOnibus(Integer id_viagem);
     void atualizarOnibus(Integer id_onibus, Integer id_viagem);
     void deletarOnibus(Integer id_onibus);
-    void listarOnibus();
-    void assentosDisponiveis(Integer id_onibus);
 }

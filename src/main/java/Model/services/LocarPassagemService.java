@@ -14,11 +14,10 @@ public class LocarPassagemService {
         InterfaceAssentoDAO IAD = DAOfactory.criarAssentoDAO();
         Integer id_Assento = IAD.buscarAssento(id_Onibus,numero);
 
-        IAD.ocuparAssento(id_Assento);
+        IAD.atualizarAssento(id_Assento);
 
         InterfacePassagemDAO IPD = DAOfactory.criarPassagemDAO();
         IPD.adicionarPassagem(id_cliente,id_Onibus,id_viagem,id_Assento);
 
     }
-
 }
