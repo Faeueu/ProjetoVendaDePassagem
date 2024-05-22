@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.entities.Passagem;
 import db.ConexaoBD;
 import Model.Interface.InterfaceViagemDAO;
 import Model.entities.Viagem;
@@ -45,8 +46,8 @@ public class ViagemDAO implements InterfaceViagemDAO {
             pesquisaViagem = conexaoviagem.prepareStatement("select * from viagem where Origem = ? and horarioSaida = ? and Destino = ? and horarioChegada = ?");
             pesquisaViagem.setString(1, Origem);
             pesquisaViagem.setObject(2, horarioSaida);
-            pesquisaViagem.setString(1, Destino);
-            pesquisaViagem.setObject(1, horarioChegada);
+            pesquisaViagem.setString(3, Destino);
+            pesquisaViagem.setObject(4, horarioChegada);
 
             resultadoViagem = pesquisaViagem.executeQuery();
             resultadoViagem.next();
@@ -101,6 +102,13 @@ public class ViagemDAO implements InterfaceViagemDAO {
             ConexaoBD.closeAcesso(pesquisaViagem);
 
         }
+    }
+
+    @Override
+    public Passagem locarPassagem(Integer id_viagem, Integer numero) {
+
+
+        return null;
     }
 
     @Override

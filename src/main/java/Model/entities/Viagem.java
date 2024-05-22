@@ -9,7 +9,7 @@ public class Viagem {
     protected String origem, horaSaida, destino, horaChegada;
     protected LocalDateTime horarioSaida, horarioChegada;
 
-    public Viagem( String origem, String destino, String horaSaida, String horaChegada) {
+    public Viagem(String origem, String horaSaida, String destino, String horaChegada) {
         this.origem = origem;
         this.horarioSaida = LocalDateTime.parse(horaSaida, formato);
         this.destino = destino;

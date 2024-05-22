@@ -78,25 +78,26 @@ public class OnibusDAO implements InterfaceOnibusDAO {
     }
 
     @Override
-    public void buscarOnibus(Integer id_onibus, Onibus onibus){
+    public Integer buscarOnibus(Integer id_viagem){
+
+        Integer id_onibus = null;
 
         try{
-            pesquisaOnibus = conexaoOnibus.prepareStatement("select onibus.id_onibus, viagem.id_viagem, viagem.origem, viagem.destino, viagem.horarioSaida, viagem.horarioChegada from onibus join viagem on onibus.id_viagem = viagem.id_viagem where onibus.id_onibus = ?");
-            pesquisaOnibus.setInt(1, id_onibus);
+            pesquisaOnibus = conexaoOnibus.prepareStatement("SELECT \n" +
+                    "    onibus.id_onibus\n" +
+                    "FROM \n" +
+                    "    onibus\n" +
+                    "JOIN \n" +
+                    "    viagem ON onibus.id_viagem = viagem.id_viagem\n" +
+                    "WHERE \n" +
+                    "    viagem.id_viagem = ?");
+
+            pesquisaOnibus.setInt(1, id_viagem);
 
             resultadoOnibus = pesquisaOnibus.executeQuery();
             resultadoOnibus.next();
 
-            Viagem viagem = new Viagem("","","2004/04/04 09:09:08","2004/04/04 09:09:08");
-            viagem.setId_viagem(resultadoOnibus.getInt("viagem.id_viagem"));
-            viagem.setOrigem(resultadoOnibus.getString("viagem.origem"));
-            viagem.setDestino(resultadoOnibus.getString("viagem.destino"));
-            viagem.setHorarioSaida((LocalDateTime)resultadoOnibus.getObject("horarioSaida"));
-            viagem.setHorarioChegada((LocalDateTime)resultadoOnibus.getObject("horarioChegada"));
-            onibus.setId_onibus(id_onibus);
-            onibus.setViagem(viagem);
-
-            System.out.println(onibus);
+            id_onibus = resultadoOnibus.getInt("onibus.id_onibus");
 
         } catch (SQLException ex) {
             System.out.println("Erro ao buscar onibus: " + ex);
@@ -105,6 +106,8 @@ public class OnibusDAO implements InterfaceOnibusDAO {
 
             ConexaoBD.closeAcesso(pesquisaOnibus,resultadoOnibus);
         }
+        return id_onibus;
+
     }
 
     @Override

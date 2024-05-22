@@ -3,7 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import DAO.DAOfactory;
+import Model.Interface.InterfaceAssentoDAO;
+import Model.Interface.InterfaceViagemDAO;
 import Model.entities.Cliente;
+import Model.entities.Viagem;
+import Model.services.LocarPassagemService;
+
+import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -11,6 +19,9 @@ import Model.entities.Cliente;
  */
 public class Menu_locar extends javax.swing.JFrame {
 
+    Integer numeroAssento;
+    Integer idViagem;
+    Cliente cLienteLogado = new Cliente();
     /**
      * Creates new form Menu_Inicial
      */
@@ -19,6 +30,8 @@ public class Menu_locar extends javax.swing.JFrame {
     }
     public Menu_locar(Cliente cliente) {
         initComponents();
+        cLienteLogado = cliente;
+
     }
 
     /**
@@ -105,7 +118,13 @@ public class Menu_locar extends javax.swing.JFrame {
             }
         });
 
-        jComboBox_Assentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Assentos.setModel(new javax.swing.DefaultComboBoxModel<>(new Integer[] {}));
+        jComboBox_Assentos.setSelectedItem(jComboBox_Assentos);
+        jComboBox_Assentos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox_AssentosItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -206,7 +225,20 @@ public class Menu_locar extends javax.swing.JFrame {
     }//GEN-LAST:event_jT_horarioChegadaActionPerformed
 
     private void jButton_BuscarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarPassagemActionPerformed
-        // TODO add your handling code here:
+        InterfaceViagemDAO IVD = DAOfactory.criarViagemDAO();
+        String origem = jT_origem.getText();
+        String horaSaida = jT_horarioSaida.getText();
+        String destino = jT_destino.getText();
+        String horaChegada = jT_horarioChegada.getText();
+        Viagem viagem = IVD.buscarViagem(origem, horaSaida, destino, horaChegada);
+        idViagem = viagem.getId_viagem();
+        InterfaceAssentoDAO IAD = DAOfactory.criarAssentoDAO();
+        ArrayList<Integer> assentos = IAD.buscarAssentos(viagem);
+        for (Integer i : assentos) {
+            jComboBox_Assentos.addItem(i);
+        }
+        JOptionPane.showMessageDialog(null, "Selecione seu assento");
+
     }//GEN-LAST:event_jButton_BuscarPassagemActionPerformed
 
     private void jT_origemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_origemActionPerformed
@@ -222,8 +254,18 @@ public class Menu_locar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton_LocarPassgemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LocarPassgemActionPerformed
-        // TODO add your handling code here:
+        LocarPassagemService locar = new LocarPassagemService();
+        locar.locarPaddagem(idViagem,numeroAssento,cLienteLogado.getId_cliente());
+
+
     }//GEN-LAST:event_jButton_LocarPassgemActionPerformed
+
+    private void jComboBox_AssentosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox_AssentosItemStateChanged
+
+        numeroAssento = (Integer) evt.getItem();
+
+
+    }//GEN-LAST:event_jComboBox_AssentosItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -243,7 +285,7 @@ public class Menu_locar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_BuscarPassagem;
     private javax.swing.JButton jButton_LocarPassgem;
-    private javax.swing.JComboBox<String> jComboBox_Assentos;
+    private javax.swing.JComboBox<Integer> jComboBox_Assentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
