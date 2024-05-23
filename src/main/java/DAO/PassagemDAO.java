@@ -123,34 +123,4 @@ public class PassagemDAO implements InterfacePassagemDAO{
 
         }
     }
-
-    @Override
-    public void listarPassagensCliente(Integer id_cliente) {
-
-        try {
-            pesquisaPassagem = conexaoPassagem.prepareStatement("select passagem.id_passagem, passagem.id_onibus, cliente.id_cliente, viagem.*, assento.numero from passagem join cliente on passagem.id_cliente = cliente.id_cliente join viagem on passagem.id_viagem = viagem.id_viagem  join assento on passagem.id_assento = assento.id_assento  where cliente.id_cliente = ?");
-            pesquisaPassagem.setInt(1, id_cliente);
-
-            resultadoPassagem = pesquisaPassagem.executeQuery();
-
-            while (resultadoPassagem.next()){
-                System.out.println("Passagem = " + resultadoPassagem.getInt("passagem.id_passagem")
-                        + ", Onibus = " + resultadoPassagem.getInt("passagem.id_onibus")
-                        + ", Numero assento = " +  resultadoPassagem.getInt("assento.numero")
-                        + ", Cliente = " + resultadoPassagem.getInt("cliente.id_cliente")
-                        + ", Viagem = " + resultadoPassagem.getInt("viagem.id_viagem")
-                        + ", Origem = " + resultadoPassagem.getString("viagem.origem")
-                        + ", HorarioSaida + " + resultadoPassagem.getString("viagem.horarioSaida")
-                        + ", Destino = " + resultadoPassagem.getString("viagem.destino")
-                        + ", HorarioChegada = " + resultadoPassagem.getString("viagem.horarioChegada"));
-
-            }
-        } catch (SQLException e){
-            System.out.println("Erro ao listar passagens " + e);
-
-        }finally {
-            ConexaoBD.closeAcesso(pesquisaPassagem,resultadoPassagem);
-
-        }
-    }
 }
