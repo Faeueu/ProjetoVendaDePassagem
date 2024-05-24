@@ -52,7 +52,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton_RealizarCadastro = new javax.swing.JButton();
-        jButton_Logar = new javax.swing.JButton();
+        jButton_IrParaLogin = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -165,13 +165,13 @@ public class Tela_Cadastro extends javax.swing.JFrame {
             }
         });
 
-        jButton_Logar.setBackground(new java.awt.Color(51, 51, 51));
-        jButton_Logar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 20)); // NOI18N
-        jButton_Logar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Logar.setText("Logar");
-        jButton_Logar.addActionListener(new java.awt.event.ActionListener() {
+        jButton_IrParaLogin.setBackground(new java.awt.Color(51, 51, 51));
+        jButton_IrParaLogin.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 20)); // NOI18N
+        jButton_IrParaLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_IrParaLogin.setText("Logar");
+        jButton_IrParaLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_LogarActionPerformed(evt);
+                jButton_IrParaLoginActionPerformed(evt);
             }
         });
 
@@ -195,7 +195,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Logar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
+                        .addComponent(jButton_IrParaLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -208,7 +208,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jButton_Logar))
+                    .addComponent(jButton_IrParaLogin))
                 .addGap(32, 32, 32))
         );
 
@@ -385,11 +385,11 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_RealizarCadastroActionPerformed
 
-    private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogarActionPerformed
+    private void jButton_IrParaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_IrParaLoginActionPerformed
         dispose();
         Tela_Login login = new Tela_Login();
         login.setVisible(true);
-    }//GEN-LAST:event_jButton_LogarActionPerformed
+    }//GEN-LAST:event_jButton_IrParaLoginActionPerformed
 
     private void jP_SenhaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jP_SenhaCadastroActionPerformed
         // TODO add your handling code here:
@@ -411,7 +411,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Logar;
+    private javax.swing.JButton jButton_IrParaLogin;
     private javax.swing.JButton jButton_RealizarCadastro;
     private javax.swing.JFormattedTextField jF_CpfCadastro;
     private javax.swing.JFormattedTextField jF_TelefoneCadastro;

@@ -46,11 +46,11 @@ public class Menu_locar extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jT_destino = new javax.swing.JTextField();
-        jT_horarioSaida = new javax.swing.JTextField();
-        jT_horarioChegada = new javax.swing.JTextField();
+        jT_Destino = new javax.swing.JTextField();
+        jT_HorarioSaida = new javax.swing.JTextField();
+        jT_HorarioChegada = new javax.swing.JTextField();
         jButton_BuscarPassagem = new javax.swing.JButton();
-        jT_origem = new javax.swing.JTextField();
+        jT_Origem = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -72,30 +72,30 @@ public class Menu_locar extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jT_destino.setBackground(new java.awt.Color(204, 204, 204));
-        jT_destino.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jT_destino.setBorder(null);
-        jT_destino.addActionListener(new java.awt.event.ActionListener() {
+        jT_Destino.setBackground(new java.awt.Color(204, 204, 204));
+        jT_Destino.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jT_Destino.setBorder(null);
+        jT_Destino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_destinoActionPerformed(evt);
+                jT_DestinoActionPerformed(evt);
             }
         });
 
-        jT_horarioSaida.setBackground(new java.awt.Color(204, 204, 204));
-        jT_horarioSaida.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jT_horarioSaida.setBorder(null);
-        jT_horarioSaida.addActionListener(new java.awt.event.ActionListener() {
+        jT_HorarioSaida.setBackground(new java.awt.Color(204, 204, 204));
+        jT_HorarioSaida.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jT_HorarioSaida.setBorder(null);
+        jT_HorarioSaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_horarioSaidaActionPerformed(evt);
+                jT_HorarioSaidaActionPerformed(evt);
             }
         });
 
-        jT_horarioChegada.setBackground(new java.awt.Color(204, 204, 204));
-        jT_horarioChegada.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jT_horarioChegada.setBorder(null);
-        jT_horarioChegada.addActionListener(new java.awt.event.ActionListener() {
+        jT_HorarioChegada.setBackground(new java.awt.Color(204, 204, 204));
+        jT_HorarioChegada.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jT_HorarioChegada.setBorder(null);
+        jT_HorarioChegada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_horarioChegadaActionPerformed(evt);
+                jT_HorarioChegadaActionPerformed(evt);
             }
         });
 
@@ -110,12 +110,12 @@ public class Menu_locar extends javax.swing.JFrame {
             }
         });
 
-        jT_origem.setBackground(new java.awt.Color(204, 204, 204));
-        jT_origem.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jT_origem.setBorder(null);
-        jT_origem.addActionListener(new java.awt.event.ActionListener() {
+        jT_Origem.setBackground(new java.awt.Color(204, 204, 204));
+        jT_Origem.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jT_Origem.setBorder(null);
+        jT_Origem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_origemActionPerformed(evt);
+                jT_OrigemActionPerformed(evt);
             }
         });
 
@@ -161,10 +161,10 @@ public class Menu_locar extends javax.swing.JFrame {
                     .addComponent(jSeparator4)
                     .addComponent(jSeparator3)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jT_horarioSaida)
-                    .addComponent(jT_horarioChegada)
-                    .addComponent(jT_origem)
-                    .addComponent(jT_destino)
+                    .addComponent(jT_HorarioSaida)
+                    .addComponent(jT_HorarioChegada)
+                    .addComponent(jT_Origem)
+                    .addComponent(jT_Destino)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator1)
                     .addComponent(jLabel3)
@@ -188,25 +188,25 @@ public class Menu_locar extends javax.swing.JFrame {
                 .addGap(97, 97, 97)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jT_origem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jT_Origem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jT_horarioSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jT_HorarioSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jT_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jT_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jT_horarioChegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jT_HorarioChegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -220,10 +220,8 @@ public class Menu_locar extends javax.swing.JFrame {
         jPanel3.setBorder(new javax.swing.border.MatteBorder(null));
 
         jComboBox_Assentos.setBackground(new java.awt.Color(102, 102, 102));
-        jComboBox_Assentos.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jComboBox_Assentos.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 12)); // NOI18N
         jComboBox_Assentos.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox_Assentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox_Assentos.setSelectedItem(jComboBox_Assentos);
         jComboBox_Assentos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Passagens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tw Cen MT Condensed", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jComboBox_Assentos.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -270,8 +268,8 @@ public class Menu_locar extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jLabel7))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jComboBox_Assentos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(88, 88, 88)
+                        .addComponent(jComboBox_Assentos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -279,13 +277,13 @@ public class Menu_locar extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jLabel6)
-                .addGap(45, 45, 45)
-                .addComponent(jComboBox_Assentos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(178, 178, 178)
+                .addGap(51, 51, 51)
+                .addComponent(jComboBox_Assentos, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_LocarPassgem, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -327,24 +325,24 @@ public class Menu_locar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jT_horarioSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_horarioSaidaActionPerformed
+    private void jT_HorarioSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_HorarioSaidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_horarioSaidaActionPerformed
+    }//GEN-LAST:event_jT_HorarioSaidaActionPerformed
 
-    private void jT_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_destinoActionPerformed
+    private void jT_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_DestinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_destinoActionPerformed
+    }//GEN-LAST:event_jT_DestinoActionPerformed
 
-    private void jT_horarioChegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_horarioChegadaActionPerformed
+    private void jT_HorarioChegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_HorarioChegadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_horarioChegadaActionPerformed
+    }//GEN-LAST:event_jT_HorarioChegadaActionPerformed
 
     private void jButton_BuscarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarPassagemActionPerformed
         InterfaceViagemDAO IVD = DAOfactory.criarViagemDAO();
-        String origem = jT_origem.getText();
-        String horaSaida = jT_horarioSaida.getText();
-        String destino = jT_destino.getText();
-        String horaChegada = jT_horarioChegada.getText();
+        String origem = jT_Origem.getText();
+        String horaSaida = jT_HorarioSaida.getText();
+        String destino = jT_Destino.getText();
+        String horaChegada = jT_HorarioChegada.getText();
         Viagem viagem = IVD.buscarViagem(origem, horaSaida, destino, horaChegada);
         idViagem = viagem.getId_viagem();
         InterfaceAssentoDAO IAD = DAOfactory.criarAssentoDAO();
@@ -356,9 +354,9 @@ public class Menu_locar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_BuscarPassagemActionPerformed
 
-    private void jT_origemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_origemActionPerformed
+    private void jT_OrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_OrigemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_origemActionPerformed
+    }//GEN-LAST:event_jT_OrigemActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         
@@ -421,9 +419,9 @@ public class Menu_locar extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jT_destino;
-    private javax.swing.JTextField jT_horarioChegada;
-    private javax.swing.JTextField jT_horarioSaida;
-    private javax.swing.JTextField jT_origem;
+    private javax.swing.JTextField jT_Destino;
+    private javax.swing.JTextField jT_HorarioChegada;
+    private javax.swing.JTextField jT_HorarioSaida;
+    private javax.swing.JTextField jT_Origem;
     // End of variables declaration//GEN-END:variables
 }

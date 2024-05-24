@@ -42,7 +42,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel_IrParaCadastro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,13 +113,13 @@ public class Tela_Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Guanabira");
 
-        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel4.setText("Cadastrar-se");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel_IrParaCadastro.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel_IrParaCadastro.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabel_IrParaCadastro.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel_IrParaCadastro.setText("Cadastrar-se");
+        jLabel_IrParaCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                jLabel_IrParaCadastroMouseClicked(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class Tela_Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_IrParaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jT_login, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
@@ -164,7 +164,7 @@ public class Tela_Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel4)
+                .addComponent(jLabel_IrParaCadastro)
                 .addGap(31, 31, 31))
         );
 
@@ -187,7 +187,7 @@ public class Tela_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_loginActionPerformed
 
-    private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogarActionPerformed
+    private void jButton_LogarActionPerformed(java.awt.event.ActionEvent evt) {                                              
 
         LoginClienteService login = new LoginClienteService();
         String loga = jT_login.getText();
@@ -205,11 +205,11 @@ public class Tela_Login extends javax.swing.JFrame {
         }
     }
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void jLabel_IrParaCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IrParaCadastroMouseClicked
         dispose();
         Tela_Cadastro cadastro = new Tela_Cadastro();
         cadastro.setVisible(true);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_jLabel_IrParaCadastroMouseClicked
 
     /**
      * @param args the command line arguments
@@ -231,8 +231,8 @@ public class Tela_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel_IrParaCadastro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
