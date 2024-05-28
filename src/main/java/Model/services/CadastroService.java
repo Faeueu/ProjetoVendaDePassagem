@@ -1,12 +1,19 @@
 package Model.services;
 
 import DAO.DAOfactory;
+import Model.Interface.InterfaceCadastroService;
 import Model.Interface.InterfaceClienteDAO;
 import Model.entities.Cliente;
 
 import javax.swing.*;
 
 public class CadastroService {
+
+    /*private InterfaceCadastroService cadastroService;
+
+    public CadastroService(InterfaceCadastroService cadastroService){
+        this.cadastroService = cadastroService;
+    }*/
 
     private boolean verificarDados(String nome, String cpf, String telefone, String email, String login, String senha){
 
