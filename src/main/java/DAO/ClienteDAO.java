@@ -19,10 +19,6 @@ public class ClienteDAO implements InterfaceClienteDAO {
         this.conexaoCliente = conexaoCliente;
     }
 
-    public ClienteDAO() throws SQLException {
-        this.conexaoCliente.close();
-    }
-
     @Override
     public void adicionarCliente(String nome, String cpf, String telefone, String email, String login, String senha) {
 

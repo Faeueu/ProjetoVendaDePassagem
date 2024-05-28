@@ -11,9 +11,6 @@ public class DAOfactory {
     public static InterfaceClienteDAO criarClienteDAO(){
         return new ClienteDAO(ConexaoBD.getConexao());
     }
-    public static InterfaceClienteDAO fechaClienteDAO() throws SQLException {
-        return new ClienteDAO();
-    }
     public static InterfaceViagemDAO criarViagemDAO(){
         return new ViagemDAO(ConexaoBD.getConexao());
     }

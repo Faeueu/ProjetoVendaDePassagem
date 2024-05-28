@@ -20,17 +20,9 @@ public class ConexaoBD {
         }
     }
 
-    public static void closeConexao(Connection conexao){
-
-        try {
-            if (conexao != null) {
-                conexao.close();
-
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-
-        }
+    public static void closeConexao( ) throws SQLException {
+        Connection connection = getConexao();
+        connection.close();
     }
 
     public static void closeAcesso(PreparedStatement pesquisa){
