@@ -3,7 +3,9 @@ package DAO;
 import db.ConexaoBD;
 import Model.Interface.*;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Collection;
 
 public class DAOfactory {
     public static InterfaceClienteDAO criarClienteDAO(){

@@ -1,10 +1,12 @@
 package Model.services;
 
+import DAO.ClienteDAO;
 import DAO.DAOfactory;
 import Model.Interface.InterfaceClienteDAO;
 import Model.entities.Cliente;
 
 import javax.swing.*;
+import java.sql.Connection;
 
 public class LoginClienteService {
 
@@ -29,6 +31,7 @@ public class LoginClienteService {
 
         if(verificarDados){
             return ICD.clienteLogin(login, senha);
+
 
         } else {
             return cliente;

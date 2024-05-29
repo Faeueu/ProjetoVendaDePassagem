@@ -4,6 +4,8 @@ import Model.entities.Passagem;
 import db.ConexaoBD;
 import Model.Interface.InterfaceViagemDAO;
 import Model.entities.Viagem;
+
+import javax.swing.*;
 import java.sql.*;
 import java.time.LocalDateTime;
 
@@ -55,7 +57,7 @@ public class ViagemDAO implements InterfaceViagemDAO {
             viagem.setId_viagem(resultadoViagem.getInt("id_viagem"));
 
         } catch (SQLException e) {
-            System.out.println("Erro ao buscar viagem! " + e);
+            JOptionPane.showMessageDialog(null,"Erro ao buscar viagem! " + e);
 
         } finally {
             ConexaoBD.closeAcesso(pesquisaViagem,resultadoViagem);

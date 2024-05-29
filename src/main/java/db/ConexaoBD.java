@@ -3,7 +3,7 @@ package db;
 import java.sql.*;
 
 public class ConexaoBD {
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/guanabira";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/bdguanabira";
     private static final String USER = "root";
     private static final String PASSWORD = "root1234";
 
@@ -19,6 +19,12 @@ public class ConexaoBD {
 
         }
     }
+
+    public static void closeConexao( ) throws SQLException {
+        Connection connection = getConexao();
+        connection.close();
+    }
+
     public static void closeAcesso(PreparedStatement pesquisa){
 
         try {
