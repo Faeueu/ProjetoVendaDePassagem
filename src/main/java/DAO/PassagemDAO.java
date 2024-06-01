@@ -72,6 +72,7 @@ public class PassagemDAO implements InterfacePassagemDAO{
             dadosPassagem.add(resultadoPassagem.getString("viagem.horarioSaida"));
             dadosPassagem.add(resultadoPassagem.getString("viagem.destino"));
             dadosPassagem.add(resultadoPassagem.getString("viagem.horarioChegada"));
+            dadosPassagem.add(String.valueOf(resultadoPassagem.getInt("assento.numero")));
 
         } catch (SQLException e){
             System.out.println("Erro ao listar passagens " + e);
@@ -81,6 +82,31 @@ public class PassagemDAO implements InterfacePassagemDAO{
 
         }
         return dadosPassagem;
+    }
+
+    @Override
+    public ArrayList<Integer> listarPassagem(Integer id_cliente) {
+        ArrayList<Integer> listaPassagens = new ArrayList<>();
+
+        try {
+
+            pesquisaPassagem = conexaoPassagem.prepareStatement("select id_passagem from passagem where id_cliente = ?");
+            pesquisaPassagem.setInt(1, id_cliente);
+
+            resultadoPassagem = pesquisaPassagem.executeQuery();
+
+            while(resultadoPassagem.next()){
+                listaPassagens.add(resultadoPassagem.getInt("id_passagem"));
+
+            }
+        } catch (SQLException e){
+            System.out.println("Erro ao listar passagens " + e);
+
+        }finally {
+            ConexaoBD.closeAcesso(pesquisaPassagem,resultadoPassagem);
+
+        }
+        return listaPassagens;
     }
 
     @Override

@@ -23,7 +23,7 @@ public class GerarPassagemService {
         ArrayList<String> dadosPassagem = IPD.buscarPassagem(id_passagem);
 
         String documentsPath = System.getProperty("user.home") + File.separator + "Documents";
-        String pdfFilePath = documentsPath + File.separator + "simple_document"+id_passagem+numeroAssento+".pdf";
+        String pdfFilePath = documentsPath + File.separator + "Bilhete"+id_passagem+numeroAssento+".pdf";
 
         PdfWriter writer = new PdfWriter(pdfFilePath);
         PdfDocument pdfDoc = new PdfDocument(writer);

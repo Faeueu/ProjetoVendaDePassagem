@@ -5,6 +5,9 @@
 package View;
 
 import Model.entities.Cliente;
+import Model.services.GerarListaPassagemService;
+
+import java.io.IOException;
 
 /**
  *
@@ -61,7 +64,7 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bem vindo(a) ao Gianabira Express!");
+        jLabel5.setText("Bem vindo(a) ao Guanabira Express!");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -87,9 +90,20 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
         jButton_BaixarPDF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_BaixarPDF.setMaximumSize(new java.awt.Dimension(42, 30));
         jButton_BaixarPDF.setMinimumSize(new java.awt.Dimension(42, 30));
+        jButton_BaixarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    jButton_BaixarPDFActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        jLabel3.setText("Clique no botão abaixo para gerar o PDF da compra");
+        jLabel3.setText("Clique no botão abaixo para gerar um PDF de suas passagens");
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel2.setText("Clique no botão abaixo para procurar e locar sua passagem");
@@ -186,6 +200,11 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
         Menu_locar locar = new Menu_locar(clienteLogado);
         locar.setVisible(true);
     }//GEN-LAST:event_jButton_LocarAssentoActionPerformed
+
+    private void jButton_BaixarPDFActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException {//GEN-FIRST:event_jButton_BaixarPDFActionPerformed
+        GerarListaPassagemService gerar = new GerarListaPassagemService();
+        gerar.pdfListaPassagem(clienteLogado);
+    }//GEN-LAST:event_jButton_BaixarPDFActionPerformed
 
     /**
      * @param args the command line arguments
