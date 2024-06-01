@@ -4,17 +4,22 @@
  */
 package View;
 
+import Model.entities.Cliente;
+
 /**
  *
  * @author Faeu
  */
 public class Tela_Intermediaria extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Intermediaria
-     */
+    Cliente clienteLogado = new Cliente();
+    
     public Tela_Intermediaria() {
         initComponents();
+    }
+    public Tela_Intermediaria(Cliente cliente) {
+        initComponents();
+        clienteLogado = cliente;
     }
 
     /**
@@ -30,10 +35,10 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jButton_BaixarPDF = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_LocarAssento = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -75,13 +80,13 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Baixar PDF");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setMaximumSize(new java.awt.Dimension(42, 30));
-        jButton2.setMinimumSize(new java.awt.Dimension(42, 30));
+        jButton_BaixarPDF.setBackground(new java.awt.Color(51, 51, 51));
+        jButton_BaixarPDF.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jButton_BaixarPDF.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_BaixarPDF.setText("Baixar PDF");
+        jButton_BaixarPDF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_BaixarPDF.setMaximumSize(new java.awt.Dimension(42, 30));
+        jButton_BaixarPDF.setMinimumSize(new java.awt.Dimension(42, 30));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel3.setText("Clique no botão abaixo para gerar o PDF da compra");
@@ -89,14 +94,14 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel2.setText("Clique no botão abaixo para procurar e locar sua passagem");
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Locar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_LocarAssento.setBackground(new java.awt.Color(204, 204, 204));
+        jButton_LocarAssento.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jButton_LocarAssento.setForeground(new java.awt.Color(51, 51, 51));
+        jButton_LocarAssento.setText("Locar");
+        jButton_LocarAssento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_LocarAssento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_LocarAssentoActionPerformed(evt);
             }
         });
 
@@ -130,10 +135,10 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_LocarAssento, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_BaixarPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -148,11 +153,11 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton_LocarAssento, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton_BaixarPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -176,9 +181,11 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton_LocarAssentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LocarAssentoActionPerformed
+        dispose();
+        Menu_locar locar = new Menu_locar(clienteLogado);
+        locar.setVisible(true);
+    }//GEN-LAST:event_jButton_LocarAssentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,8 +202,8 @@ public class Tela_Intermediaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_BaixarPDF;
+    private javax.swing.JButton jButton_LocarAssento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -379,8 +379,8 @@ public class Tela_Cadastro extends javax.swing.JFrame {
 
         } else {
             dispose();
-            Menu_locar menu = new Menu_locar(cliente);
-            menu.setVisible(true);
+            Tela_Intermediaria inter = new Tela_Intermediaria(cliente);
+            inter.setVisible(true);;
 
         }
     }//GEN-LAST:event_jButton_RealizarCadastroActionPerformed

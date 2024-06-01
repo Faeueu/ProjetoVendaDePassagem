@@ -5,12 +5,15 @@
 package View;
 import DAO.DAOfactory;
 import Model.Interface.InterfaceAssentoDAO;
+import Model.Interface.InterfacePassagemDAO;
 import Model.Interface.InterfaceViagemDAO;
 import Model.entities.Cliente;
 import Model.entities.Viagem;
+import Model.services.GerarPassagemService;
 import Model.services.LocarPassagemService;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -243,7 +246,11 @@ public class Menu_locar extends javax.swing.JFrame {
         jButton_LocarPassgem.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
         jButton_LocarPassgem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_LocarPassgemActionPerformed(evt);
+                try {
+                    jButton_LocarPassgemActionPerformed(evt);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -365,11 +372,14 @@ public class Menu_locar extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jButton_LocarPassgemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LocarPassgemActionPerformed
+    private void jButton_LocarPassgemActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException {//GEN-FIRST:event_jButton_LocarPassgemActionPerformed
+
         LocarPassagemService locar = new LocarPassagemService();
-        locar.locarPaddagem(idViagem,numeroAssento,cLienteLogado.getId_cliente());
-
-
+        locar.locarPassagem(idViagem,numeroAssento,cLienteLogado.getId_cliente());
+        JOptionPane.showMessageDialog(null, "Passagem reservada com suscesso!");
+        dispose();
+        Tela_Intermediaria inter = new Tela_Intermediaria(cLienteLogado);
+        inter.setVisible(true);
     }//GEN-LAST:event_jButton_LocarPassgemActionPerformed
 
     private void jComboBox_AssentosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox_AssentosItemStateChanged

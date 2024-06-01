@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class PassagemDAO implements InterfacePassagemDAO{
     Connection conexaoPassagem;
@@ -55,24 +56,22 @@ public class PassagemDAO implements InterfacePassagemDAO{
     }
 
     @Override
-    public void buscarPassagem(Integer id_passagem){
+    public ArrayList<String> buscarPassagem(Integer id_passagem){
+
+        ArrayList<String> dadosPassagem = new ArrayList<>();
 
         try {
-            pesquisaPassagem = conexaoPassagem.prepareStatement("select passagem.id_passagem, passagem.id_onibus, passagem.id_cliente, viagem.*, assento.numero from passagem join cliente on passagem.id_cliente = cliente.id_cliente join viagem on passagem.id_viagem = viagem.id_viagem  join assento on passagem.id_assento = assento.id_assento  where passagem.id_passagem = ?");
+            pesquisaPassagem = conexaoPassagem.prepareStatement("select cliente.nome, passagem.id_passagem, viagem.origem, viagem.horarioSaida, viagem.destino, viagem.horarioChegada, assento.numero from passagem join cliente on passagem.id_cliente = cliente.id_cliente join viagem on passagem.id_viagem = viagem.id_viagem  join assento on passagem.id_assento = assento.id_assento where passagem.id_passagem = ?");
             pesquisaPassagem.setInt(1, id_passagem);
 
             resultadoPassagem = pesquisaPassagem.executeQuery();
             resultadoPassagem.next();
 
-            System.out.println("Passagem = " + resultadoPassagem.getInt("passagem.id_passagem")
-                    + ", Onibus = " + resultadoPassagem.getInt("passagem.id_onibus")
-                    + ", Numero assento = " +  resultadoPassagem.getInt("assento.numero")
-                    + ", Cliente = " + resultadoPassagem.getInt("passagem.id_cliente")
-                    + ", Viagem = " + resultadoPassagem.getInt("viagem.id_viagem")
-                    + ", Origem = " + resultadoPassagem.getString("viagem.origem")
-                    + ", HorarioSaida + " + resultadoPassagem.getString("viagem.horarioSaida")
-                    + ", Destino = " + resultadoPassagem.getString("viagem.destino")
-                    + ", HorarioChegada = " + resultadoPassagem.getString("viagem.horarioChegada"));
+            dadosPassagem.add(resultadoPassagem.getString("cliente.nome"));
+            dadosPassagem.add(resultadoPassagem.getString("viagem.origem"));
+            dadosPassagem.add(resultadoPassagem.getString("viagem.horarioSaida"));
+            dadosPassagem.add(resultadoPassagem.getString("viagem.destino"));
+            dadosPassagem.add(resultadoPassagem.getString("viagem.horarioChegada"));
 
         } catch (SQLException e){
             System.out.println("Erro ao listar passagens " + e);
@@ -81,6 +80,34 @@ public class PassagemDAO implements InterfacePassagemDAO{
             ConexaoBD.closeAcesso(pesquisaPassagem,resultadoPassagem);
 
         }
+        return dadosPassagem;
+    }
+
+    @Override
+    public Integer buscarPassagem(Integer id_cliente, Integer id_onibus, Integer id_viagem, Integer id_assento) {
+
+        Integer id_passagem = null;
+
+        try {
+            pesquisaPassagem = conexaoPassagem.prepareStatement("select id_passagem from passagem where id_cliente = ? and id_onibus = ? and id_viagem = ? and id_assento = ?");
+            pesquisaPassagem.setInt(1, id_cliente);
+            pesquisaPassagem.setInt(2, id_onibus);
+            pesquisaPassagem.setInt(3, id_viagem);
+            pesquisaPassagem.setInt(4, id_assento);
+
+            resultadoPassagem = pesquisaPassagem.executeQuery();
+            resultadoPassagem.next();
+
+            id_passagem =  resultadoPassagem.getInt("id_passagem");
+
+        } catch (SQLException e){
+            System.out.println("Erro ao buscar passagem " + e);
+
+        }finally {
+            ConexaoBD.closeAcesso(pesquisaPassagem,resultadoPassagem);
+
+        }
+        return id_passagem;
     }
 
     @Override
