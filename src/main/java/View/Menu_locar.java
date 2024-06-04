@@ -246,7 +246,11 @@ public class Menu_locar extends javax.swing.JFrame {
         jButton_LocarPassgem.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
         jButton_LocarPassgem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_LocarPassgemActionPerformed(evt);
+                try {
+                    jButton_LocarPassgemActionPerformed(evt);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
