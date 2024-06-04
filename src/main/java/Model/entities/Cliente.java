@@ -1,6 +1,6 @@
 package Model.entities;
 
-public class Cliente {
+public class Cliente extends Pessoa{
     protected Integer id_cliente;
     protected String nome;
     protected String cpf;
@@ -9,6 +9,7 @@ public class Cliente {
     protected String login;
     protected String senha;
     public Cliente(String nome, String cpf, String telefone, String email, String login, String senha) {
+        super(nome);
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -17,6 +18,7 @@ public class Cliente {
         this.senha = senha;
     }
     public Cliente(){
+        super();
 
     }
 

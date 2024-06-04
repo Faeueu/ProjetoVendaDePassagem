@@ -24,7 +24,7 @@ public class Menu_locar extends javax.swing.JFrame {
 
     Integer numeroAssento;
     Integer idViagem;
-    Cliente cLienteLogado = new Cliente();
+    Cliente clienteLogado = new Cliente();
     /**
      * Creates new form Menu_Inicial
      */
@@ -33,7 +33,7 @@ public class Menu_locar extends javax.swing.JFrame {
     }
     public Menu_locar(Cliente cliente) {
         initComponents();
-        cLienteLogado = cliente;
+        clienteLogado = cliente;
 
     }
 
@@ -56,7 +56,7 @@ public class Menu_locar extends javax.swing.JFrame {
         jT_Origem = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_VoltarLogin = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
@@ -129,12 +129,12 @@ public class Menu_locar extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel1.setText("Destino:");
 
-        jLabel2.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel2.setText("Deseja trocar de conta ? Clique aqui !");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel_VoltarLogin.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        jLabel_VoltarLogin.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel_VoltarLogin.setText("Voltar");
+        jLabel_VoltarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jLabel_VoltarLoginMouseClicked(evt);
             }
         });
 
@@ -166,7 +166,7 @@ public class Menu_locar extends javax.swing.JFrame {
                     .addComponent(jSeparator4)
                     .addComponent(jSeparator3)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jT_HorarioSaida)
+                    .addComponent(jT_HorarioSaida, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addComponent(jT_HorarioChegada)
                     .addComponent(jT_Origem)
                     .addComponent(jT_Destino)
@@ -176,8 +176,8 @@ public class Menu_locar extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton_BuscarPassagem, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel_VoltarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -217,8 +217,8 @@ public class Menu_locar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_BuscarPassagem, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(jLabel_VoltarLogin))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -246,11 +246,7 @@ public class Menu_locar extends javax.swing.JFrame {
         jButton_LocarPassgem.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
         jButton_LocarPassgem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton_LocarPassgemActionPerformed(evt);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
+                jButton_LocarPassgemActionPerformed(evt);
             }
         });
 
@@ -292,7 +288,7 @@ public class Menu_locar extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_LocarPassgem, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -309,7 +305,7 @@ public class Menu_locar extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -331,17 +327,38 @@ public class Menu_locar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jT_HorarioSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_HorarioSaidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jT_HorarioSaidaActionPerformed
+    private void jButton_LocarPassgemActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException {//GEN-FIRST:event_jButton_LocarPassgemActionPerformed
 
-    private void jT_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_DestinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jT_DestinoActionPerformed
+        LocarPassagemService locar = new LocarPassagemService();
+        locar.locarPassagem(idViagem,numeroAssento,clienteLogado.getId_cliente());
+        JOptionPane.showMessageDialog(null, "Passagem reservada com suscesso!");
+        dispose();
+        Tela_Intermediaria inter = new Tela_Intermediaria(clienteLogado);
+        inter.setVisible(true);
+    }//GEN-LAST:event_jButton_LocarPassgemActionPerformed
 
-    private void jT_HorarioChegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_HorarioChegadaActionPerformed
+    private void jComboBox_AssentosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox_AssentosItemStateChanged
+
+        numeroAssento = (Integer) evt.getItem();
+
+
+    }//GEN-LAST:event_jComboBox_AssentosItemStateChanged
+
+    private void jComboBox_AssentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_AssentosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_HorarioChegadaActionPerformed
+    }//GEN-LAST:event_jComboBox_AssentosActionPerformed
+
+    private void jLabel_VoltarLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_VoltarLoginMouseClicked
+
+        dispose();
+        Tela_Intermediaria inter = new Tela_Intermediaria(clienteLogado);
+        inter.setVisible(true);
+
+    }//GEN-LAST:event_jLabel_VoltarLoginMouseClicked
+
+    private void jT_OrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_OrigemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_OrigemActionPerformed
 
     private void jButton_BuscarPassagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarPassagemActionPerformed
         InterfaceViagemDAO IVD = DAOfactory.criarViagemDAO();
@@ -357,41 +374,19 @@ public class Menu_locar extends javax.swing.JFrame {
             jComboBox_Assentos.addItem(i);
         }
         JOptionPane.showMessageDialog(null, "Selecione seu assento");
-
     }//GEN-LAST:event_jButton_BuscarPassagemActionPerformed
 
-    private void jT_OrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_OrigemActionPerformed
+    private void jT_HorarioChegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_HorarioChegadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_OrigemActionPerformed
+    }//GEN-LAST:event_jT_HorarioChegadaActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        
-        dispose();
-        Tela_Login login = new Tela_Login();
-        login.setVisible(true);
-        
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void jButton_LocarPassgemActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException {//GEN-FIRST:event_jButton_LocarPassgemActionPerformed
-
-        LocarPassagemService locar = new LocarPassagemService();
-        locar.locarPassagem(idViagem,numeroAssento,cLienteLogado.getId_cliente());
-        JOptionPane.showMessageDialog(null, "Passagem reservada com suscesso!");
-        dispose();
-        Tela_Intermediaria inter = new Tela_Intermediaria(cLienteLogado);
-        inter.setVisible(true);
-    }//GEN-LAST:event_jButton_LocarPassgemActionPerformed
-
-    private void jComboBox_AssentosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox_AssentosItemStateChanged
-
-        numeroAssento = (Integer) evt.getItem();
-
-
-    }//GEN-LAST:event_jComboBox_AssentosItemStateChanged
-
-    private void jComboBox_AssentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_AssentosActionPerformed
+    private void jT_HorarioSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_HorarioSaidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_AssentosActionPerformed
+    }//GEN-LAST:event_jT_HorarioSaidaActionPerformed
+
+    private void jT_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_DestinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_DestinoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,13 +408,13 @@ public class Menu_locar extends javax.swing.JFrame {
     private javax.swing.JButton jButton_LocarPassgem;
     private javax.swing.JComboBox<Integer> jComboBox_Assentos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel_VoltarLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

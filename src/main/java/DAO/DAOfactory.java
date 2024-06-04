@@ -20,9 +20,6 @@ public class DAOfactory {
     public static InterfaceAssentoDAO criarAssentoDAO(){
         return new AssentoDAO(ConexaoBD.getConexao());
     }
-    public static InterfaceMotoristaDAO criarMotoristaDAO(){
-        return new MotoristaDAO(ConexaoBD.getConexao());
-    }
     public static InterfacePassagemDAO criarPassagemDAO(){
         return new PassagemDAO(ConexaoBD.getConexao());
     }
